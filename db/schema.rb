@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2024_07_12_142553) do
   create_table "nyankos", force: :cascade do |t|
     t.string "title"
     t.string "body"
+    t.string "image"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

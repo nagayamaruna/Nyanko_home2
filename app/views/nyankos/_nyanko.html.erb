@@ -1,0 +1,50 @@
+<div class="col-md-3">
+  
+  <p><%= image_tag @user.get_image(100,100) %></p>
+  
+<table class="table">
+  <tr>
+    <th>
+      name
+    </th>
+    <th>
+      <%= @user.name %>
+    </th>
+  </tr>
+  <tr>
+    <th>
+      <%= @user.introduction %>
+    </th>
+  </tr>
+</table>
+
+<div class="row">
+  <%= link_to "<i class='fa-solid fa-user-gear'></i>".html_safe, edit_user_path(user), class: "btn btn-outline-secondary btn-block" %>
+</div>
+
+<p></p>
+<%= form_with model: nyanko do |f| %>
+
+<div class="form">
+<%= f.label :写真 %>
+  <%= f.file_field :image, accept: "image/*" %>
+</div>
+<p></p>
+<div class="form">
+<%= f.label :タイトル %>
+  <%= f.text_field :title, class: "form-control" %>
+</div>
+<p></p>
+<div class="form">
+<%= f.label :説明 %>
+  <%= f.text_area :body, class: "form-control" %>
+</div>
+
+<p></p>
+<div class="form">
+  <%= f.submit '投稿', class: "btn btn-outline-secondary" %>
+</div>
+<% end %>
+</div>
+  
+    
