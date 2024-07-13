@@ -4,14 +4,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
+  validates :name, uniqueness: true
+  validates_length_of :name, minimum: 2, maximum: 20
+  validates_length_of :introduction, maximum: 200
   has_many :nyankos, dependent: :destroy
   
   has_one_attached :profile_image
   
-  def get_profile_image(width, height)
+  def get_image(width, height)
+    
   unless profile_image.attached?
-    file_path = Rails.root.join('app/assets/images/sample-author1.jpg')
-    profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    file_path = Rails.root.join('app/assets/images/profile_image.jpg')
+    profile_image.attach(io: File.open(file_path), filename: 'profile_image.jpg', content_type: 'image/jpeg')
   end
   profile_image.variant(resize_to_limit: [width, height]).processed
 

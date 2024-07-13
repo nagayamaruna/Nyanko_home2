@@ -1,4 +1,15 @@
-<h1>Nyankos#index</h1>
-<p>Find me in app/views/nyankos/index.html.erb</p>
-
-<% @nyankos.each do |nyanko| %>
+<div class="col-md-8 offset-md-1">
+  <table class="table">
+    <tr>
+      <td>
+        <% @nyanko_post.each do |nyanko| %>
+    <p><%= image_tag image.get_image %></p>
+    <%= image_tag @nyanko_post.user.get_image(100,100) %>
+    <p>投稿者名</p>：<%= nyanko.user.name %></p>
+    
+    <p>タイトル：<%= @nyanko_post.title %></p>
+    
+    <p>説明：<%= @nyanko_post.body %></p>
+    
+</div>
+<% end %>

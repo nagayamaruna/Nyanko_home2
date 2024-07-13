@@ -16,9 +16,12 @@ class NyankosController < ApplicationController
   end
 
   def index
+    @nyanko = Nyanko.all
   end
 
   def show
+    @nyanko_post = Nyanko.find(params[:id])
+    @nyanko_post = Nyanko.all
   end
 
   def edit
