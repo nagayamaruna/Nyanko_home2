@@ -14,8 +14,6 @@
   .icon {
     padding-right: 6px;
   }
-  
-  
 </style>
 
 <div class="row">
@@ -52,67 +50,3 @@
   <% end %>
 </div>
 <% end %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<div class="row">-->
-<!--<div class="col-md-8 offset-md-1">-->
-<!--  <table class="table">-->
-<!--    <% @nyanko_post.each do |nyanko| %>-->
-<!--    <tr>-->
-<!--      <td>-->
-<!--        <%= image_tag nyanko.image %>-->
-<!--      </td>-->
-<!--      <td>-->
-<!--        <%= image_tag nyanko.user.get_image(100,100) %>-->
-<!--      </td>-->
-<!--      <td>-->
-<!--        <%= nyanko.user.name %>-->
-<!--      </td>-->
-<!--      <td>-->
-<!--        <%= link_to user_path(nyanko) do %><% end %>-->
-<!--      </td>-->
-<!--        <%= link_to nyanko.title, nyanko_path(nyanko.id) %>-->
-<!--        <%= nyanko.body %>-->
-<!--      <td>-->
-<!--        <p>投稿日：<%= nyanko.created_at.strftime('%Y/%m/%d') %></p>-->
-
-<!--        <% if nyanko.user == current_user %>-->
-<!--      <td>-->
-<!--        <%= link_to "Edit", edit_nyanko_path(nyanko.id), class: "btn btn-success"%>-->
-<!--      </td>-->
-<!--      <td>-->
-<!--        <%= link_to "Destroy", nyanko_path(nyanko.id), method: :delete, class: "btn btn-danger"%>-->
-<!--      </td>-->
-<!--        <% end %>-->
-<!--      </td>-->
-<!--    </tr>-->
-<!--  </table>  -->
-<!--  <% end %>-->
-  
-<!--</div>-->
-<!--</div>-->

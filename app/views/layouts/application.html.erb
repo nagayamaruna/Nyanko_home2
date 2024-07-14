@@ -16,6 +16,8 @@
     <header>
       <% if user_signed_in? %>
         <li>
+          <%= link_to 'マイページ', user_path(current_user.id) %></li>
+        <li>
           <%= link_to '里親募集', new_nyanko_path %>
         </li>
         <li>
