@@ -16,11 +16,11 @@ class NyankosController < ApplicationController
   end
 
   def index
-    @nyanko = Nyanko.all
+    @nyankos = Nyanko.all
   end
 
   def show
-    @nyanko_post = Nyanko.find(params[:id])
+    @nyanko = Nyanko.find(params[:id])
     @nyanko_post = Nyanko.all
   end
 
@@ -30,6 +30,6 @@ class NyankosController < ApplicationController
   private
 
   def nyanko_params
-    params.require(:nyanko).permit(:titli, :body, :image)
+    params.require(:nyanko).permit(:title, :body, :image)
   end
 end

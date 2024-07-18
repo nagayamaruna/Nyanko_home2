@@ -5,6 +5,11 @@
     <tr>
       <td>
         <%= link_to user_path(nyanko) do %><%= image_tag nyanko.user.get_image(100,100) %><br><%= nyanko.user.name %><% end %>
+        
+        <% if @user == current_user %>
+        <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+        <% end %>
+        
       </td>
       <td>
         <%= image_tag nyanko.image %>

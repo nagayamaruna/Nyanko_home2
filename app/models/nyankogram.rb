@@ -1,0 +1,2 @@
+class Nyankogram < ApplicationRecord
+end
