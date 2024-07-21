@@ -1,2 +1,9 @@
-<h1>Nyankograms#new</h1>
-<p>Find me in app/views/nyankograms/new.html.erb</p>
+<h1>Nyankogram</h1>
+<%= form_with model: @nyankogram do |f| %>
+  <h4>画像</h4>
+  <%= f.file_field :post_image, accept: "image/*" %>
+
+  <h4>説明</h4>
+  <%= f.text_area :post_body %>
+  <%= f.submit '投稿' %>
+<% end %>

@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :nyankos, only: [:new, :create, :index, :show, :edit]
   resources :users, only: [:show, :edit, :update]
-  resources :nyankograms, only: [:new, :index, :show]
+  resources :nyankograms, only: [:new, :create, :index, :show]
 end
