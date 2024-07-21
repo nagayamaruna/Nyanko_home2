@@ -5,7 +5,7 @@
         <% @nyanko.each do |nyanko| %>
     <p><%= image_tag nyanko.image.get_image %></p>
     <%= image_tag nyanko.user.get_image(100,100) %>
-    <p>投稿者名</p>：<%= nyanko.user.name %></p>
+    <p>投稿者名：<%= nyanko.user.name %></p>
 
     <p>タイトル：<%= nyanko.title %></p>
 

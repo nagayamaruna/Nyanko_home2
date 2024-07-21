@@ -12,6 +12,7 @@ class NyankogramsController < ApplicationController
   end
 
   def index
+    @nyankograms = Nyankogram.all
   end
 
   def show
@@ -20,6 +21,6 @@ class NyankogramsController < ApplicationController
   private
 
   def nyankogram_params
-    params.require(:nyankogram).permit(:post_image, :post_body)
+  params.require(:nyankogram).permit(:post_image, :post_body)
   end
 end
