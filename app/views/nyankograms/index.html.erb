@@ -1,9 +1,13 @@
 <% @nyankograms.each do |nyankogram| %>
-    <%= image_tag nyankogram.image.get_post_image %>
-    <%= image_tag nyankogram.user.get_image(100,100) %>
-    <p><%= nyankogram.user.name %></p>
 
-    <p><%= nyankogram.post_body %></p>
+<% byebug %>
+  <%= image_tag nyankogram.post_images.variant(resize_to_fill: [60, 60]) %>
+  
+  <%= image_tag nyankogram.user.get_image(100,100) %>
+  
+  <p><%= nyankogram.user.name %></p>
+
+  <p><%= nyankogram.post_body %></p>
 
 </div>
 <% end %>

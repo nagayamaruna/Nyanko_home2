@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+test1 = User.find_or_initialize_by(email: "test@test")
+if test1.new_record?
+  test1.name = "testさん"
+  test1.password = "imoimo"
+  test1.save!
+end
+
+post1 = Nyankogram.find_or_initialize_by(post_body: "kawaii?")
+if post1.new_record?
+  #post1.post_images.attache
+end

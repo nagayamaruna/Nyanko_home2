@@ -21,6 +21,6 @@ class NyankogramsController < ApplicationController
   private
 
   def nyankogram_params
-  params.require(:nyankogram).permit(:post_image, :post_body)
+  params.require(:nyankogram).permit(:post_images, :post_body)
   end
 end
