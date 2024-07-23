@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get '/home/about', to: 'homes#about'
   devise_for :users
-  resources :nyankos, only: [:new, :create, :index, :show, :edit]
+  resources :nyankograms, only: [:new, :show, :create, :index, :destroy]
+  resources :nyankos, only: [:new, :create, :index, :show, :edit, :destroy]
   resources :users, only: [:show, :edit, :update]
-  resources :nyankograms, only: [:new, :create, :index, :show]
 end

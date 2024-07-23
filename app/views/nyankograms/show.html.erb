@@ -15,9 +15,7 @@
 
   <% if @nyankogram.user == current_user %>
 
-  <div class="right">
-    <span><%= link_to "Edit", "#{edit_nyanko_path(@nyankogram.id)}", class: "btn btn-outline-secondary btn-sm"%></span>
-    <span><%= link_to "Destroy", "#{nyanko_path(@nyankogram.id)}", method: :delete, class: "btn btn-outline-secondary btn-sm"%></span>
-  </div>
+  <%= link_to "削除", nyankogram_path(@nyankogram.id), method: :delete, class: "btn btn-outline-secondary btn-sm"%>
+  
   <% end %>
 </div>

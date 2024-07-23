@@ -17,6 +17,13 @@ class NyankogramsController < ApplicationController
 
   def show
     @nyankogram = Nyankogram.find(params[:id])
+    @user = @nyankogram.user
+  end
+  
+  def destroy
+    nyankogram = Nyankogram.find(params[:id])
+    nyankogram.destroy
+    redirect_to "/nyankograms"
   end
 
   private

@@ -15,12 +15,20 @@ class NyankosController < ApplicationController
     end
   end
 
+  def destroy
+    nyanko = Nyanko.find(params[:id])
+    nyanko.destroy
+    redirect_to "/nyankos"
+  end
+
   def index
     @nyankos = Nyanko.all
   end
 
   def show
     @nyanko = Nyanko.find(params[:id])
+    @nyanko = Nyanko.new
+    @user = @nyanko.user
   end
 
   def edit
