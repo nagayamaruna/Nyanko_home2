@@ -2,7 +2,7 @@
   <table class="table">
     <tr>
       <td>
-        <% @nyankos.each do |nyanko| %>
+    <% @nyankos.each do |nyanko| %>
     <p><%= image_tag nyanko.get_image(100,100) %></p>
     <%= image_tag nyanko.user.get_image(100,100) %>
     <p>投稿者名：<%= nyanko.user.name %></p>
@@ -11,4 +11,6 @@
 
     <p>説明：<%= nyanko.body %></p>
     <% end %>
+    
+    <%= link_to "詳細", nyanko_path(@nyankos) %>
 </div>

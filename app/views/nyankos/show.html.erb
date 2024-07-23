@@ -19,7 +19,7 @@
   <% if @nyanko.user == current_user %>
 
   <div class="right">
-    <span><%= link_to "Edit", "#{edit_nyanko_path(@nyanko.id)}", class: "btn btn-outline-secondary btn-sm"%></span>
+    <span><%= link_to "編集", "#{edit_nyanko_path(@nyanko.id)}", class: "btn btn-outline-secondary btn-sm"%></span>
     <span><%= link_to "Destroy", "#{nyanko_path(@nyanko.id)}", method: :delete, class: "btn btn-outline-secondary btn-sm"%></span>
   </div>
   <% end %>

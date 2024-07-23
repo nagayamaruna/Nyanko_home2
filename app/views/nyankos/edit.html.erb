@@ -1,2 +1,28 @@
-<h1>Nyankos#edit</h1>
-<p>Find me in app/views/nyankos/edit.html.erb</p>
+<h1>里親募集　編集</h1>
+
+<%= form_with model: @nyanko, url: book_path(@nyanko.id), method: :patch do |f| %>
+  
+<p></p>
+<div class="form">
+<%= f.label :title %>
+  <%= f.text_field :title, class: "form-control" %>
+</div>
+
+<p></p>
+<div class="form">
+<%= f.label "body" %> 
+  <%= f.text_area :body, class: "form-control"%>
+</div>
+
+  <p></p>
+<div class="form">
+  <%= f.submit "投稿", class: "btn btn-success" %>
+</div>
+<% end %>   
+
+<p></p>
+  <%= link_to "Show", nyanko_path(@nyanko.id) %>
+  |
+  <%= link_to "Back", nyankos_path %>
+</div>
+</div>

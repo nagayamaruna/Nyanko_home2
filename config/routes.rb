@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   get '/home/about', to: 'homes#about'
   devise_for :users
   resources :nyankograms, only: [:new, :show, :create, :index, :destroy]
-  resources :nyankos, only: [:new, :create, :index, :show, :edit, :destroy]
+  resources :nyankos, only: [:new, :create, :index, :show, :edit, :destroy, :update]
   resources :users, only: [:show, :edit, :update]
 end
