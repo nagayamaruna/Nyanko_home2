@@ -1,52 +1,27 @@
-<style>
-  .flex {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .frame {
-    margin:100px auto;
-  }
-  .photo {
-    align-items: center;
-    position: relative;
-  }
-  
-  .icon {
-    padding-right: 6px;
-  }
-</style>
 
-<div class="row">
-<div class="col-md-8 offset-md-1">
-<% @nyanko_post.each do |nyanko| %>
 
-<div class="frame">
-  <div class="photo flex">
-    <div class="icon"><%= image_tag nyanko.user.get_image(100,100) %></div>
-    <p><%= nyanko.user.name %></p>
-  </div>
-  
+<div>
+  <%= image_tag @nyanko.user.get_image(100,100) %>
+  <%= @nyanko.user.name %>
+
+
   <div class="photo">
-    <%= image_tag nyanko.image %>
+    <%= image_tag @nyanko.image %>
   </div>
-  
+
   <div class="text">
-    <p><%= link_to nyanko.title, nyanko_path(nyanko.id) %></p>
-    <p><%= nyanko.body %></p>
+    <%= link_to @nyanko.title, nyanko_path(@nyanko.id) %>
+    <p><%= @nyanko.body %></p>
   </div>
-  
-  <div class="link_area flex">
-    
-  </div>
-  
-  <div class="date"><%= nyanko.created_at.strftime('%Y/%m/%d') %></div>
-  
-  <% if nyanko.user == current_user %>
-  
+
+  <div class="date"><%= @nyanko.created_at.strftime('%Y/%m/%d') %></div>
+
+  <% if @nyanko.user == current_user %>
+
   <div class="right">
-    <span><%= link_to "Edit", edit_nyanko_path(nyanko.id), class: "btn btn-outline-secondary btn-sm"%></span>
-    <span><%= link_to "Destroy", nyanko_path(nyanko.id), method: :delete, class: "btn btn-outline-secondary btn-sm"%></span>
+    <span><%= link_to "Edit", "#{edit_nyanko_path(@nyanko.id)}", class: "btn btn-outline-secondary btn-sm"%></span>
+    <span><%= link_to "Destroy", "#{nyanko_path(@nyanko.id)}", method: :delete, class: "btn btn-outline-secondary btn-sm"%></span>
   </div>
   <% end %>
 </div>
-<% end %>
+

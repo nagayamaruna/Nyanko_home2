@@ -1,2 +1,23 @@
-<h1>Nyankograms#show</h1>
-<p>Find me in app/views/nyankograms/show.html.erb</p>
+<div>
+  <%= image_tag @nyankogram.user.get_image(100,100) %>
+  <%= @nyankogram.user.name %>
+
+
+  <div class="photo">
+    <%= image_tag @nyankogram.nyankogram_image %>
+  </div>
+
+  <div class="text">
+    <p><%= @nyankogram.post_body %></p>
+  </div>
+
+  <div class="date"><%= @nyankogram.created_at.strftime('%Y/%m/%d') %></div>
+
+  <% if @nyankogram.user == current_user %>
+
+  <div class="right">
+    <span><%= link_to "Edit", "#{edit_nyanko_path(@nyankogram.id)}", class: "btn btn-outline-secondary btn-sm"%></span>
+    <span><%= link_to "Destroy", "#{nyanko_path(@nyankogram.id)}", method: :delete, class: "btn btn-outline-secondary btn-sm"%></span>
+  </div>
+  <% end %>
+</div>

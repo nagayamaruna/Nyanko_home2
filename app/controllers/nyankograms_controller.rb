@@ -3,7 +3,7 @@ class NyankogramsController < ApplicationController
     @nyankogram = Nyankogram.new
     render :new
   end
-  
+
   def create
     @nyankogram = Nyankogram.new(nyankogram_params)
     @nyankogram.user_id = current_user.id
@@ -16,11 +16,12 @@ class NyankogramsController < ApplicationController
   end
 
   def show
+    @nyankogram = Nyankogram.find(params[:id])
   end
-  
+
   private
 
   def nyankogram_params
-  params.require(:nyankogram).permit(:post_images, :post_body)
+  params.require(:nyankogram).permit(:nyankogram_image, :post_body)
   end
 end

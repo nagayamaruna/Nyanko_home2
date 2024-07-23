@@ -9,7 +9,7 @@ class NyankosController < ApplicationController
     @nyanko.user_id = current_user.id
     if @nyanko.save
       flash[:notice] = "投稿しました。"
-      redirect_to nyanko_path(@nyanko)
+      redirect_to nyankos_path
     else
       render :new
     end
@@ -21,7 +21,6 @@ class NyankosController < ApplicationController
 
   def show
     @nyanko = Nyanko.find(params[:id])
-    @nyanko_post = Nyanko.all
   end
 
   def edit

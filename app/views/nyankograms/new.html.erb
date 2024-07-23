@@ -1,7 +1,7 @@
 <h1>Nyankogram</h1>
 <%= form_with model: @nyankogram do |f| %>
   <h4>画像</h4>
-  <%= f.file_field :post_images, accept: "image/*" %>
+  <%= f.file_field :nyankogram_image, accept: "image/*" %>
 
   <h4>説明</h4>
   <%= f.text_area :post_body %>

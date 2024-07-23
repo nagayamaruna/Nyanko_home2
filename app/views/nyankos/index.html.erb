@@ -2,14 +2,13 @@
   <table class="table">
     <tr>
       <td>
-        <% @nyanko.each do |nyanko| %>
-    <p><%= image_tag nyanko.image.get_image %></p>
+        <% @nyankos.each do |nyanko| %>
+    <p><%= image_tag nyanko.get_image(100,100) %></p>
     <%= image_tag nyanko.user.get_image(100,100) %>
     <p>投稿者名：<%= nyanko.user.name %></p>
 
     <p>タイトル：<%= nyanko.title %></p>
 
     <p>説明：<%= nyanko.body %></p>
-
+    <% end %>
 </div>
-<% end %>
