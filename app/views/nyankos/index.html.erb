@@ -10,7 +10,8 @@
     <p>タイトル：<%= nyanko.title %></p>
 
     <p>説明：<%= nyanko.body %></p>
+
+    <%= link_to "詳細", nyanko_path(nyanko) %>
     <% end %>
-    
-    <%= link_to "詳細", nyanko_path(@nyankos) %>
+
 </div>
