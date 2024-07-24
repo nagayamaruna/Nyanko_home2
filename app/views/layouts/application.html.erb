@@ -18,10 +18,10 @@
         <li>
           <%= link_to 'マイページ', user_path(current_user.id) %></li>
         <li>
-          <%= link_to '里親募集', new_nyanko_path %>
+          <%= link_to '里親募集', nyankos_path %>
         </li>
         <li>
-          <%= link_to 'Nyankogram', new_nyankogram_path %>
+          <%= link_to 'Nyankogram', nyankograms_path %>
         </li>
         <li>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>

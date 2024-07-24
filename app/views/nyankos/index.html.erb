@@ -1,7 +1,9 @@
+<%= flash[:notice] %>
 <div class="col-md-8 offset-md-1">
   <table class="table">
     <tr>
       <td>
+    <%= link_to "里親を募集する", new_nyanko_path, class: "btn btn-outline-secondary btn-sm"%>
     <% @nyankos.each do |nyanko| %>
     <p><%= image_tag nyanko.get_image(100,100) %></p>
     <%= image_tag nyanko.user.get_image(100,100) %>

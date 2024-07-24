@@ -8,6 +8,7 @@ class NyankogramsController < ApplicationController
     @nyankogram = Nyankogram.new(nyankogram_params)
     @nyankogram.user_id = current_user.id
     @nyankogram.save
+    flash[:notice] = "投稿しました。"
     redirect_to nyankograms_path
   end
 
