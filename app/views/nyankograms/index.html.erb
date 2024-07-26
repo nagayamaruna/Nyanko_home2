@@ -1,20 +1,28 @@
-<%= link_to "投稿", new_nyankogram_path, class: "btn btn-outline-secondary btn-sm"%>
+<div class="card-list-container py-5">
+
+<%= link_to "投稿する", new_nyankogram_path, class: "btn btn-outline-secondary btn-sm"%>
 
 <%= flash[:notice] %>
 
 <% @nyankograms.each do |nyankogram| %>
 
-  <%= image_tag nyankogram.nyankogram_image.variant(resize_to_fill: [60, 60]) %>
+<div class="card w-50 mx-auto mt-4 shadow-lg">
+  <%= image_tag nyankogram.nyankogram_image, class: "card-img-top"; %>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-3">
+        <%= image_tag nyankogram.user.get_image(100,100), class: "mt-3 rounded-circle"; %>
+      </div>
 
-  <%= image_tag nyankogram.user.get_image(100,100) %>
-
-  <p><%= nyankogram.user.name %></p>
-
-  <p><%= nyankogram.post_body %></p>
-
-  <div>
-    <%= link_to "詳細", nyankogram_path(nyankogram) %>
+      <div class="col-9">
+        <p class="card-text"><%= nyankogram.post_body %></p>
+        <span><i class="fas fa-user"></i> <%= nyankogram.user.name %> | </span>
+        <span></span>
+        <span><%= link_to "詳細", nyankogram_path(nyankogram), class: "btn btn-outline-secondary btn-sm"%></span>
+      </div>
+    </div>
   </div>
-
 </div>
+
 <% end %>
+</div>
