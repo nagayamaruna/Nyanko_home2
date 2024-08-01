@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   
-  #ログインしていないとtopページ以外アクセスできないようにする
-  before_action :authenticate_user!, except: [:top]
+  #ログインしていないとtop,aboutページ以外アクセスできないようにする
+  before_action :authenticate_user!, except: [:top, :about]
   
   before_action :configure_permitted_parameters, if: :devise_controller?
 
