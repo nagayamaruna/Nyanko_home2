@@ -14,5 +14,17 @@ class Nyankogram < ApplicationRecord
   end
     nyankogram_image.variant(resize_to_limit: [width, height]).processed
   end
+  
+  def self.search_for(content, method)
+    if method == 'perfect'
+      Nyankogram.where(title: content)
+    elsif method == 'forward'
+      Nyankogram.where('name LIKE ?', content + '%')
+    elsif method == 'backward'
+      Nyankogram.where('name LIKE ?', '%' + content)
+    else
+      Nyankogram.where('name LIKE ?', '%' + content + '%')
+    end
+  end
 
 end

@@ -1,0 +1,7 @@
+<% if @model == 'user' %>
+    <h3> 里親募集 検索結果 "<%= @content %>"</h3>
+  <%= render 'nyankos/index', nyankos: @records %>
+<% elsif @model == 'book' %>
+    <h3> Nyankogram 検索結果 "<%= @content %>"</h3>
+  <%= render 'nyankograms/index', nyankograms: @records %>
+<% end %>

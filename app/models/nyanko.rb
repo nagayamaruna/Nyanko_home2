@@ -13,4 +13,15 @@ class Nyanko < ApplicationRecord
     image.variant(resize_to_limit: [width, height]).processed
   end
 
+  def self.search_for(content, method)
+    if method == 'perfect'
+      Nyanko.where(name: content)
+    elsif method == 'forward'
+      Nyanko.where('name LIKE ?', content + '%')
+    elsif method == 'backward'
+      Nyanko.where('name LIKE ?', '%' + content)
+    else
+      Nyanko.where('name LIKE ?', '%' + content + '%')
+    end
+  end
 end

@@ -3,6 +3,13 @@
   <table class="table">
     <tr>
       <td>
+        <%= form_with url: search_path, method: :get, local: true do |f| %>
+          <%= f.text_field :content %>
+          <%= f.select :model, options_for_select({"Nyanko" => "nyanko", "Nyankogram" => "nyankoyankogram"}) %>
+          <%= f.select :method, options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial"}) %>
+          <%= f.submit "検索" %>
+        <% end %>
+    
     <%= link_to "里親を募集する", new_nyanko_path, class: "btn btn-outline-secondary btn-sm"%>
     <% @nyankos.each do |nyanko| %>
     <p><%= image_tag nyanko.get_image(100,100) %></p>

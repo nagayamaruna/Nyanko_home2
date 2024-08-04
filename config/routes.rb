@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   scope module: :public do
   root to: "homes#top"
   get '/home/about', to: 'homes#about'
+  get "/search", to: "searches#search"
   devise_for :users
   resources :nyankograms, only: [:new, :show, :create, :index, :destroy]
   resources :nyankos, only: [:new, :create, :index, :show, :edit, :destroy, :update]
