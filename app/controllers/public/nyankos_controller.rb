@@ -1,4 +1,4 @@
-class NyankosController < ApplicationController
+class Public::NyankosController < ApplicationController
   
   def new
     @nyanko = Nyanko.new

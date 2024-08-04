@@ -1,4 +1,4 @@
-class NyankogramsController < ApplicationController
+class Public::NyankogramsController < ApplicationController
   def new
     @nyankogram = Nyankogram.new
     render :new
