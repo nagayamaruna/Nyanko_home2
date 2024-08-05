@@ -1,7 +1,30 @@
-<% if @model == 'user' %>
-    <h3> 里親募集 検索結果 "<%= @content %>"</h3>
-  <%= render 'nyankos/index', nyankos: @records %>
-<% elsif @model == 'book' %>
-    <h3> Nyankogram 検索結果 "<%= @content %>"</h3>
-  <%= render 'nyankograms/index', nyankograms: @records %>
-<% end %>
+<h2>検索結果</h2>
+
+<table class="table table-hover table-inverse">
+  <!--検索対象モデルがNyankoの時 -->
+  <% if @model == "nyanko" %>
+    <tbody>
+      <% @nyankos.each do |nyanko| %>
+        <tr>
+          <td><%= image_tag nyanko.get_image(100,100) %></td>
+          <td><%= image_tag nyanko.user.get_image(100,100) %></td>
+          <td>投稿者名：<%= nyanko.user.name %></td>
+          <td>タイトル：<%= nyanko.title %></td>
+          <td>説明：<%= nyanko.body %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <!--検索対象モデルがNyankoではない時(= 検索対象モデルがNyankogramの時) -->
+    <tbody>
+      <% @nyankograms.each do |nyankogram| %>
+        <tr>
+          <td><%= image_tag nyankogram.nyankogram_image %></td>
+          <td><%= image_tag nyankogram.user.get_image(100,100) %></td>
+          <td><%= nyankogram.user.name %></td>
+          <td><%= nyankogram.post_body %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>

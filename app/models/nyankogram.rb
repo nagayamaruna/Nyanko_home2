@@ -15,15 +15,17 @@ class Nyankogram < ApplicationRecord
     nyankogram_image.variant(resize_to_limit: [width, height]).processed
   end
   
-  def self.search_for(content, method)
-    if method == 'perfect'
-      Nyankogram.where(title: content)
-    elsif method == 'forward'
-      Nyankogram.where('name LIKE ?', content + '%')
-    elsif method == 'backward'
-      Nyankogram.where('name LIKE ?', '%' + content)
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @nyankogram = Nyankogram.where("post_body LIKE?","#{word}")
+    elsif search == "forward_match"
+      @nyankogram = Nyankogram.where("post_body LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @nyankogram = Nyankogram.where("post_body LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @nyankogram = Nyankogram.where("post_body LIKE?","%#{word}%")
     else
-      Nyankogram.where('name LIKE ?', '%' + content + '%')
+      @nyankogram = Nyankogram.all
     end
   end
 

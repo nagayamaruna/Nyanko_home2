@@ -13,15 +13,17 @@ class Nyanko < ApplicationRecord
     image.variant(resize_to_limit: [width, height]).processed
   end
 
-  def self.search_for(content, method)
-    if method == 'perfect'
-      Nyanko.where(name: content)
-    elsif method == 'forward'
-      Nyanko.where('name LIKE ?', content + '%')
-    elsif method == 'backward'
-      Nyanko.where('name LIKE ?', '%' + content)
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @naynko = Nyanko.where("title LIKE?", "#{word}")
+    elsif search == "forward_match"
+      @naynko = Nyanko.where("title LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @naynko = Nyanko.where("title LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @naynko = Nyanko.where("title LIKE?","%#{word}%")
     else
-      Nyanko.where('name LIKE ?', '%' + content + '%')
+      @naynko = Nyanko.all
     end
-  end
+  end  
 end
