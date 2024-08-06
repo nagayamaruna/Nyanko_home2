@@ -7,10 +7,11 @@ class User < ApplicationRecord
   validates :name, uniqueness: true
   validates_length_of :name, minimum: 2, maximum: 20
   validates_length_of :introduction, maximum: 200
+  
   has_many :nyankos, dependent: :destroy
-  
-  
+  has_many :nyankogram_post_comments, dependent: :destroy
   has_many :nyankograms, dependent: :destroy
+  
   has_one_attached :profile_image
   
   def get_image(width, height)

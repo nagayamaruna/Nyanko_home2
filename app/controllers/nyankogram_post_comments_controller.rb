@@ -1,0 +1,2 @@
+class NyankogramPostCommentsController < ApplicationController
+end

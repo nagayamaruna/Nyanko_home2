@@ -1,0 +1,2 @@
+module NyankogramPostCommentsHelper
+end

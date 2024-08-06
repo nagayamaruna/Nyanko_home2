@@ -4,6 +4,8 @@ class Nyankogram < ApplicationRecord
 
   validates :nyankogram_image, presence: true
   validates :post_body, presence: true
+  
+  has_many :nyankogram_post_comments, dependent: :destroy
 
 
 
