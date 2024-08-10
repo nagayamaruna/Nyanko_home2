@@ -19,8 +19,9 @@ class Public::NyankogramsController < ApplicationController
   def show
     @nyankogram = Nyankogram.find(params[:id])
     @user = @nyankogram.user
+    @nyankogram_post_comment = NyankogramPostComment.new
   end
-  
+
   def destroy
     nyankogram = Nyankogram.find(params[:id])
     nyankogram.destroy

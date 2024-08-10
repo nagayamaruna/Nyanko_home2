@@ -11,14 +11,17 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   scope module: :public do
-  root to: "homes#top"
-  get '/home/about', to: 'homes#about'
-  get "/search", to: "searches#search"
-  devise_for :users
-  resources :nyankograms, only: [:new, :show, :create, :index, :destroy]
-  resources :nyankos, only: [:new, :create, :index, :show, :edit, :destroy, :update]
-  resources :users, only: [:show, :edit, :update]
-end
+    root to: "homes#top"
+    get '/home/about', to: 'homes#about'
+    get "/search", to: "searches#search"
+    devise_for :users
+  
+    resources :nyankograms, only: [:new, :show, :create, :index, :destroy] do
+      resources :nyankogram_post_comments, only: [:create]
+    end
+    resources :nyankos, only: [:new, :create, :index, :show, :edit, :destroy, :update]
+    resources :users, only: [:show, :edit, :update]
+  end
 
 
 

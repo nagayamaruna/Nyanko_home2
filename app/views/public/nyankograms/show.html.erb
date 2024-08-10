@@ -1,21 +1,38 @@
+<div class="card-list-container py-5">
+<div class="card w-50 mx-auto mt-4 shadow-lg">
+  <%= image_tag @nyankogram.nyankogram_image %>
+
+<div class="card-body">
+    <div class="row">
+      <div class="col-3">
+        <%= image_tag @nyankogram.user.get_image(100,100), class: "mt-3 rounded-circle"; %>
+      </div>
+
+      <div class="col-9">
+        <p class="card-text"><%= @nyankogram.post_body %></p>
+        <span><i class="fas fa-user"></i><%= @nyankogram.user.name %> | </span>
+        <span>コメント：<%= @nyankogram.nyankogram_post_comments.count %></span>
+      <div class="date"><%= @nyankogram.created_at.strftime('%Y/%m/%d') %></div>
+      </div>
+
 <div>
-  <%= image_tag @nyankogram.user.get_image(100,100) %>
-  <%= @nyankogram.user.name %>
-
-
-  <div class="photo">
-    <%= image_tag @nyankogram.nyankogram_image %>
-  </div>
-
-  <div class="text">
-    <p><%= @nyankogram.post_body %></p>
-  </div>
-
-  <div class="date"><%= @nyankogram.created_at.strftime('%Y/%m/%d') %></div>
-
-  <% if @nyankogram.user == current_user %>
-
-  <%= link_to "削除", nyankogram_path(@nyankogram.id), method: :delete, class: "btn btn-outline-secondary btn-sm"%>
-  
+  <% @nyankogram.nyankogram_post_comments.each do |nyankogram_post_comment| %>
+    <p><%= image_tag nyankogram_post_comment.user.get_image(50,50) %></p>
+    <%= nyankogram_post_comment.user.name %>
+    <%= nyankogram_post_comment.created_at.strftime('%Y/%m/%d') %><%= nyankogram_post_comment.comment %>
   <% end %>
+</div>
+<div>
+  <%= form_with model: [@nyankogram, @nyankogram_post_comment] do |f| %>
+    <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに" %>
+    <%= f.submit "送信" %>
+  <% end %>
+</div>
+
+<% if @nyankogram.user == current_user %>
+<span><%= link_to "削除", nyankogram_path(@nyankogram.id), method: :delete, class: "btn btn-outline-secondary btn-sm"%></span>
+<% end %>
+</div>
+</div>
+</div>
 </div>

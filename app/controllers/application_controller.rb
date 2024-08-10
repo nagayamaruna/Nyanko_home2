@@ -2,11 +2,11 @@ class ApplicationController < ActionController::Base
 
   #ログインしていないとtop,aboutページ以外アクセスできないようにする
   before_action :authenticate_user!, except: [:top, :about]
-
+  before_action :authenticate_user!, except: [:top], unless: :admin_controller?
   before_action :configure_authentication
- 
+
   private
- 
+
   def configure_authentication
     if admin_controller?
       authenticate_admin!
@@ -14,11 +14,11 @@ class ApplicationController < ActionController::Base
       authenticate_user! unless action_is_public?
     end
   end
- 
+
   def admin_controller?
     self.class.module_parent_name == 'Admin'
   end
- 
+
   def action_is_public?
     controller_name == 'homes' && action_name == 'top'
   end
