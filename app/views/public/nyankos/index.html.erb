@@ -6,19 +6,41 @@
         <div class="d-flex justify-content-center mb-2">
           <%= render "public/searches/search" %>
         </div>
-    
-    <%= link_to "里親を募集する", new_nyanko_path, class: "btn btn-outline-secondary btn-sm"%>
-    
-    <% @nyankos.each do |nyanko| %>
-    <p><%= image_tag nyanko.get_image(100,100) %></p>
-    <%= image_tag nyanko.user.get_image(100,100) %>
-    <p>投稿者名：<%= nyanko.user.name %></p>
+        <%= link_to "里親を募集する", new_nyanko_path, class: "btn btn-outline-secondary btn-sm"%>
+        <p></p>
 
-    <p>タイトル：<%= nyanko.title %></p>
+    <div class="nyankoList_applicant">
+      <h3 class="nyanko">募集中の猫さんたち</h3>
+      <ul class="nyankoList">
+        <style>
+          .box a{
+            text-decoration: none;
+            display: block;
+          }
+        </style>
+        <% @nyankos.each do |nyanko| %>
+        <li>
+          <div class="box">
+            <span class="nyankoimg"><%= image_tag nyanko.get_image(190,190) %></span>
+          <div calss="nyankoinfo">
+            <p class="title"><%= nyanko.title %></p>
+          <div class="userinfo">
+            <span class="userimg"><%= image_tag nyanko.user.get_image(50,50) %></span>
+            <span class="username"><%= nyanko.user.name %></span>
+          </div>
+          <div class="link">
+            <span class="show_link"><%= link_to "詳細", nyanko_path(nyanko) %></span>
+          </div>
+          </div>
+          </div>
+          <% end %>
+        </li>
+      </ul>
+    </div>
 
-    <p>説明：<%= nyanko.body %></p>
 
-    <%= link_to "詳細", nyanko_path(nyanko) %>
-    <% end %>
+    </td>
+    </tr>
+  </table>
+  </div>
 
-</div>
