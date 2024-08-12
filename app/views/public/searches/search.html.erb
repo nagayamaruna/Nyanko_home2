@@ -1,3 +1,11 @@
+<div class="card-list-container py-5">
+  
+  <div class="d-flex justify-content-center mb-2">
+          <%= render "public/searches/search" %>
+  </div>
+  
+  
+
 <h2>検索結果</h2>
 
 <table class="table table-hover table-inverse">
@@ -7,7 +15,7 @@
       <% @nyankos.each do |nyanko| %>
         <tr>
           <td><%= image_tag nyanko.get_image(100,100) %></td>
-          <td><%= image_tag nyanko.user.get_image(100,100) %></td>
+          <td><%= image_tag nyanko.user.get_image(50,50) %></td>
           <td>投稿者名：<%= nyanko.user.name %></td>
           <td>タイトル：<%= nyanko.title %></td>
           <td>説明：<%= nyanko.body %></td>
@@ -20,7 +28,7 @@
       <% @nyankograms.each do |nyankogram| %>
         <tr>
           <td><%= image_tag nyankogram.nyankogram_image %></td>
-          <td><%= image_tag nyankogram.user.get_image(100,100) %></td>
+          <td><%= image_tag nyankogram.user.get_image(50,50) %></td>
           <td><%= nyankogram.user.name %></td>
           <td><%= nyankogram.post_body %></td>
         </tr>
