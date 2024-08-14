@@ -6,7 +6,6 @@ class CreateNyankos < ActiveRecord::Migration[6.1]
       t.string :image
       t.integer :user_id
       t.timestamps
-      add_column :nyankos, :name, :string
     end
   end
 end

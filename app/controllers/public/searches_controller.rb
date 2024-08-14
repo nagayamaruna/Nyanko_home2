@@ -1,7 +1,8 @@
 class Public::SearchesController < ApplicationController
+  before_action :authenticate_user!
+  
   def search
     @range = params[:range]
-    @word = params[:word]
 
     if @range == "Nyanko"
       @nyankos = Nyanko.looks(params[:search], params[:word])

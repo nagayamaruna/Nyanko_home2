@@ -1,16 +1,16 @@
 <div class="card-list-container py-5">
-  
+
   <div class="d-flex justify-content-center mb-2">
           <%= render "public/searches/search" %>
   </div>
-  
-  
+
+
 
 <h2>検索結果</h2>
 
 <table class="table table-hover table-inverse">
   <!--検索対象モデルがNyankoの時 -->
-  <% if @model == "nyanko" %>
+  <% if @range == "Nyanko" %>
     <tbody>
       <% @nyankos.each do |nyanko| %>
         <tr>
