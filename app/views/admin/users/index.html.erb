@@ -1,0 +1,43 @@
+<h1>users</h1>
+<div class="row my-4">
+  <div class="col-md-6">
+    <%= form_with url: admin_users_path, method: :get do |f| %>
+      <div class="row">
+        <div class="col-md-10">
+          <%= f.search_field :keyword, value: params[:keyword], placeholder: "ID/名前/mailから検索できます", class: "form-control" %>
+        </div>
+        <div class="col-md-2">
+          <%= f.submit "検索", class: "btn btn-primary btn-block" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="my-4">
+  <% if @users.any? %>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>eamil</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= link_to "削除", admin_user_path(user), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-danger" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>該当するレコードがありません</p>
+  <% end %>
+</div>
+

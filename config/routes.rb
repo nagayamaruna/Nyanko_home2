@@ -4,11 +4,8 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    get 'dashboards', to: 'dashboards#index'
-    resources :users, only: [:destroy]
-  end
-  namespace :admin do
-    get 'nyankogram_post_comments', to: 'nyankogram_post_comment#index'
+    root to: 'users#index'
+    get 'dashboards', to: redirect('admin/users')
     resources :nyankogram_post_comments, only: [:index, :destroy]
     resources :users, only: [:index, :destroy]
   end

@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>NyankoHome</title>
-    
+
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
     </style>
@@ -54,6 +54,17 @@
       <% end %>
       </li>
 
+      <% elsif admin_signed_in? %>
+        <li class="nav-item">
+           <%= link_to "ユーザー一覧", admin_users_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+           <%= link_to "コメント一覧", admin_nyankogram_post_comments_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+           <%= link_to "ログアウト", destroy_admin_session_path, methos: :delete, class: "nav-link" %>
+        </li>
+
 
       <% else %>
 
@@ -102,6 +113,7 @@
       </div>
     </footer>
 
-
+    <%= current_user.inspect %>
+    <%= current_admin.inspect %>
   </body>
 </html>

@@ -1,4 +1,4 @@
-class Admin::NyankogramPostCommentController < ApplicationController
+class Admin::NyankogramPostCommentsController < ApplicationController
 
   def index
     @nyankogram_post_comments = NyankogramPostComment.all
