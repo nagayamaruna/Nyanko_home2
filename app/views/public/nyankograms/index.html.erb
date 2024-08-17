@@ -1,5 +1,5 @@
 <div class="card-list-container py-5">
-  
+
   <div class="d-flex justify-content-center mb-2">
           <%= render "public/searches/search" %>
   </div>
@@ -21,6 +21,7 @@
       <div class="col-9">
         <p class="card-text"><%= nyankogram.post_body %></p>
           <span><i class="fas fa-user"></i> <%= nyankogram.user.name %> | </span>
+         
         <p><%= link_to "コメント#{nyankogram.nyankogram_post_comments.count} ", nyankogram_path(nyankogram.id) %></p>
           <span></span>
         <span><%= link_to "詳細", nyankogram_path(nyankogram), class: "btn btn-outline-secondary btn-sm"%></span>

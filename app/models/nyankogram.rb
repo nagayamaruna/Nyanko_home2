@@ -6,6 +6,7 @@ class Nyankogram < ApplicationRecord
   validates :post_body, presence: true
   
   has_many :nyankogram_post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
 
 
@@ -15,6 +16,10 @@ class Nyankogram < ApplicationRecord
     nyankogram_image.attach(io: File.open(file_path), filename: 'profile_image.jpg', content_type: 'image/jpeg')
   end
     nyankogram_image.variant(resize_to_limit: [width, height]).processed
+  end
+  
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
   end
   
   def self.looks(search, word)

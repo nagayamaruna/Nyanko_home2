@@ -6,6 +6,12 @@ class Public::NyankogramPostCommentsController < ApplicationController
     comment.save
     redirect_to nyankogram_path(nyankogram)
   end
+  
+  def destroy
+    comment = NyankogramPostComment.find(params[:id])
+    comment.destroy
+    redirect_to nyankogram_path(comment.nyankogram)
+  end
 
   private
 

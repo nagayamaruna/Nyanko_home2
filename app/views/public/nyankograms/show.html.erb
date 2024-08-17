@@ -11,6 +11,19 @@
       <div class="col-9">
         <p class="card-text"><%= @nyankogram.post_body %></p>
         <span><i class="fas fa-user"></i><%= @nyankogram.user.name %> | </span>
+        <% if @nyankogram.favorited_by?(current_user) %>
+    <p>
+      <%= link_to nyankogram_favorite_path(@nyankogram), method: :delete do %>
+        ♥<%= @nyankogram.favorites.count %>
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to nyankogram_favorite_path(@nyankogram), method: :post do %>
+        ♡<%= @nyankogram.favorites.count %>
+      <% end %>
+    </p>
+  <% end %>
         <span>コメント：<%= @nyankogram.nyankogram_post_comments.count %></span>
       <div class="date"><%= @nyankogram.created_at.strftime('%Y/%m/%d') %></div>
       </div>
