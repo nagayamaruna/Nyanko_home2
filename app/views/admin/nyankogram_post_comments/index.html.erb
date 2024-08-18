@@ -1,22 +1,42 @@
-<div class="container mt-5">
-<h3>コメント一覧</h3>
-<table class="table mt-3">
-  <tr>
-    <th class="col-2">名前</th>
-    <th class="col-8">コメント</th>
-    <th class="col-1"></th>
-    <th class="col-1"></th>
-  </tr>
-<% @nyankogram_post_comments.each do |nyankogram_post_comment| %>
-  <tr>
-    <td class="col-2"><%= @users.find(nyankogram_post_comment.user_id).name %></td>
-    <td class="col-8"><%= nyankogram_post_comment.comment %></td>
-    <td class="col-1"><%= nyankogram_post_comment.created_at.strftime('%Y/%m/%d') %></td>
-    <td class="col-1">
-      <%= link_to '削除', admin_nyankogram_post_comment_path(nyankogram_post_comment), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-sm btn-danger" %>
-    </td>
-  </tr>
-<% end %>
-</table>
+<h1>コメント一覧</h1>
+<div class="row my-4">
+  <div class="col-md-6">
+    <%= form_with url: admin_nyankogram_post_comments_path, method: :get do |f| %>
+      <div class="row">
+        <div class="col-md-10">
+          <%= f.search_field :keyword, value: params[:keyword], placeholder: "ID/名前/コメントから検索できます", class: "form-control" %>
+        </div>
+        <div class="col-md-2">
+          <%= f.submit "検索", class: "btn btn-primary btn-block" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
+<div class="my-4">
+  <% if @nyankogram_post_comments.any? %>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>comment</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @nyankogram_post_comments.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.comment %></td>
+            <td><%= link_to "削除", admin_nyankogram_post_comment_path(nyankogram_post_comment), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-danger" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>該当するレコードがありません</p>
+  <% end %>
 </div>

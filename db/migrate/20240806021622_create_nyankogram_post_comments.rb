@@ -4,6 +4,7 @@ class CreateNyankogramPostComments < ActiveRecord::Migration[6.1]
       t.text :comment
       t.integer :user_id
       t.integer :nyankogram_id
+      t.string :name
       t.timestamps
     end
   end

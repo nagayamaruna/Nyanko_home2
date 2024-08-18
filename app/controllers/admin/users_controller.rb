@@ -6,7 +6,7 @@ class Admin::UsersController < ApplicationController
     if params[:keyword].present?
       @users = @users.where('id LIKE ?', "%#{params[:keyword]}%").or(
                @users.where('name LIKE ?', "%#{params[:keyword]}%")).or(
-               @users.where('email LIKE ?', "%#{params[:keyword]}%"))
+               @users.where('comment LIKE ?', "%#{params[:keyword]}%"))
     end
   end
   
