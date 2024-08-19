@@ -1,7 +1,19 @@
 <div class="card-list-container py-5">
 
-  <div class="d-flex justify-content-center mb-2">
-          <%= render "public/searches/search" %>
+<div class="row my-4">
+  <div class="col-md-6">
+    <%= form_with url: nyankograms_path, method: :get do |f| %>
+      <div class="row">
+        <div class="col-md-10">
+          <%= f.search_field :keyword, value: params[:keyword], placeholder: "名前/キーワードから検索できます", class: "form-control" %>
+        </div>
+        <div class="col-md-2">
+          <%= f.submit "検索", class: "btn btn-primary btn-block" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
   </div>
 
 <%= link_to "投稿する", new_nyankogram_path, class: "btn btn-outline-secondary btn-sm"%>
@@ -21,7 +33,7 @@
       <div class="col-9">
         <p class="card-text"><%= nyankogram.post_body %></p>
           <span><i class="fas fa-user"></i> <%= nyankogram.user.name %> | </span>
-         
+
         <p><%= link_to "コメント#{nyankogram.nyankogram_post_comments.count} ", nyankogram_path(nyankogram.id) %></p>
           <span></span>
         <span><%= link_to "詳細", nyankogram_path(nyankogram), class: "btn btn-outline-secondary btn-sm"%></span>

@@ -14,6 +14,11 @@ class Public::NyankogramsController < ApplicationController
 
   def index
     @nyankograms = Nyankogram.all
+    @users = User.all
+    if params[:keyword].present?
+      @nyankograms = @nyankograms.where('name LIKE ?', "%#{params[:keyword]}%").or(
+               @nyankograms.where('post_body LIKE ?', "%#{params[:keyword]}%"))
+    end
   end
 
   def show

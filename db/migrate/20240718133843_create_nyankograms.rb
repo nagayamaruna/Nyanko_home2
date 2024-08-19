@@ -5,6 +5,7 @@ class CreateNyankograms < ActiveRecord::Migration[6.1]
       t.string :post_image
       t.integer :user_id
       t.timestamps
+      t.string :name
     end
   end
 end
