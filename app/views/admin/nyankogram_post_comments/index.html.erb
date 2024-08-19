@@ -26,12 +26,12 @@
         </tr>
       </thead>
       <tbody>
-        <% @nyankogram_post_comments.each do |user| %>
+        <% @nyankogram_post_comments.each do |comment| %>
           <tr>
-            <td><%= user.id %></td>
-            <td><%= user.name %></td>
-            <td><%= user.comment %></td>
-            <td><%= link_to "削除", admin_nyankogram_post_comment_path(nyankogram_post_comment), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-danger" %></td>
+            <td><%= comment.id %></td>
+            <td><%= comment.user.name %></td>
+            <td><%= comment.comment %></td>
+            <td><%= link_to "削除", admin_nyankogram_post_comment_path(comment), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-danger" %></td>
           </tr>
         <% end %>
       </tbody>

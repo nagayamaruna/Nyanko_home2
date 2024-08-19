@@ -62,7 +62,7 @@
            <%= link_to "コメント一覧", admin_nyankogram_post_comments_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-           <%= link_to "ログアウト", destroy_admin_session_path, methos: :delete, class: "nav-link" %>
+           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %>
         </li>
 
 
@@ -112,8 +112,5 @@
         </div>
       </div>
     </footer>
-
-    <%= current_user.inspect %>
-    <%= current_admin.inspect %>
   </body>
 </html>
