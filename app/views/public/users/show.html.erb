@@ -1,36 +1,39 @@
-
-<table class="table">
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <%= link_to user_path(@user) do %>
-          <%= image_tag @user.get_image(200, 200) %>
+<div class="row">
+  <div class="col-md-10 offset-md-1">
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <%= link_to user_path(@user) do %>
+              <%= image_tag @user.get_image(200, 200) %>
+            <% end %>
+          </td>
+          <td><%= @user.name %></td>
+          <td>
+            <% if @user == current_user %>
+              <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-outline-secondary btn-sm" %>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+      <tbody>
+        <% @nyankos.each do |nyanko| %>
+        <tr>
+          <td>
+            <%= link_to nyanko_path(nyanko.id) do %>
+              <%= image_tag nyanko.image, :size =>'300x300' %>
+            <% end %>
+          </td>
+        </tr>
         <% end %>
-      </td>
-      <td><%= @user.name %></td>
-      <td>
-        <% if @user == current_user %>
-          <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-outline-secondary btn-sm" %>
-        <% end %>
-      </td>
-    </tr>
-  </tbody>
-</table>
-  <tbody>
-    <% @nyankos.each do |nyanko| %>
-    <tr>
-      <td>
-        <%= link_to nyanko_path(nyanko.id) do %>
-          <%= image_tag nyanko.image, :size =>'300x300' %>
-        <% end %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
+      </tbody>
+  </div>
+</div>
