@@ -21,19 +21,5 @@ class Nyankogram < ApplicationRecord
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
-  
-  def self.looks(search, word)
-    if search == "perfect_match"
-      @nyankogram = Nyankogram.where("post_body LIKE?","#{word}")
-    elsif search == "forward_match"
-      @nyankogram = Nyankogram.where("post_body LIKE?","#{word}%")
-    elsif search == "backward_match"
-      @nyankogram = Nyankogram.where("post_body LIKE?","%#{word}")
-    elsif search == "partial_match"
-      @nyankogram = Nyankogram.where("post_body LIKE?","%#{word}%")
-    else
-      @nyankogram = Nyankogram.all
-    end
-  end
 
 end
