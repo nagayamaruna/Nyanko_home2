@@ -1,5 +1,5 @@
 class Public::FavoritesController < ApplicationController
-  
+
   def create
     nyankogram = Nyakogram.find(params[:nyankogram_id])
     favorite = current_user.favorites.new(nyankogram_id: nyankogram.id)
