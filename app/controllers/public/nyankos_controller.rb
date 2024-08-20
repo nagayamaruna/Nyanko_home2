@@ -1,5 +1,5 @@
 class Public::NyankosController < ApplicationController
-  
+
   def new
     @nyanko = Nyanko.new
     render :new
@@ -25,6 +25,11 @@ class Public::NyankosController < ApplicationController
 
   def index
     @nyankos = Nyanko.all
+    @users = User.all
+    if params[:keyword].present?
+      @nyankos = @nyankos.where('title LIKE ?', "%#{params[:keyword]}%").or(
+               @nyankos.where('body LIKE ?', "%#{params[:keyword]}%"))
+    end
   end
 
   def show
@@ -42,7 +47,7 @@ class Public::NyankosController < ApplicationController
       redirect_to "/nyankos"
     end
   end
-  
+
   def update
     nyanko = Nyanko.find(params[:id])
     if nyanko.update(nyanko_params)
