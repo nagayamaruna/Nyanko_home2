@@ -1,7 +1,7 @@
 class Public::FavoritesController < ApplicationController
 
   def create
-    nyankogram = Nyakogram.find(params[:nyankogram_id])
+    nyankogram = Nyankogram.find(params[:nyankogram_id])
     favorite = current_user.favorites.new(nyankogram_id: nyankogram.id)
     favorite.save
     redirect_to nyankogram_path(nyankogram)

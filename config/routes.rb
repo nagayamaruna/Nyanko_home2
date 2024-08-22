@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
     resources :nyankograms, only: [:new, :show, :create, :index, :destroy] do
       resources :nyankogram_post_comments, only: [:create]
-      resources :favorites, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
     end
     
     resources :nyankos, only: [:new, :create, :index, :show, :edit, :destroy, :update]
