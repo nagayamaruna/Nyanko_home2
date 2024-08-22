@@ -1,27 +1,44 @@
 <%= flash[:notice] %>
 
-<div>
-  <%= image_tag @nyanko.user.get_image(100,100) %>
-  <%= @nyanko.user.name %>
-
-
-  <div class="photo">
-    <%= image_tag @nyanko.image %>
+<div class="row">
+  <div class="col-md-11 offset-md-1">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            <%= link_to user_path(@user) do %>
+              <%= image_tag @user.get_image(50, 50) %>
+            <% end %>
+            <%= @nyanko.user.name %>
+          </th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <%= image_tag @nyanko.image, :size =>'500x500' %>
+            <%= @nyanko.title %>
+          </td>
+          <td>
+            <%= @nyanko.title %>
+            </td>
+          <td>
+            <%= @nyanko.body %>
+          </td>
+          <td>
+            <%= @nyanko.created_at.strftime('%Y/%m/%d') %>
+          </td>
+          <% if @nyanko.user == current_user %>
+      <div class="right">
+        <span><%= link_to "編集", "#{edit_nyanko_path(@nyanko.id)}", class: "btn btn-outline-secondary btn-sm"%></span>
+        <span><%= link_to "Destroy", "#{nyanko_path(@nyanko.id)}", method: :delete, class: "btn btn-outline-secondary btn-sm"%></span>
+      </div>
+      <% end %>
+        </tr>
+      </tbody>
+    </table>
   </div>
-
-  <div class="text">
-    <%= @nyanko.title %>
-    <p><%= @nyanko.body %></p>
-  </div>
-
-  <div class="date"><%= @nyanko.created_at.strftime('%Y/%m/%d') %></div>
-
-  <% if @nyanko.user == current_user %>
-
-  <div class="right">
-    <span><%= link_to "編集", "#{edit_nyanko_path(@nyanko.id)}", class: "btn btn-outline-secondary btn-sm"%></span>
-    <span><%= link_to "Destroy", "#{nyanko_path(@nyanko.id)}", method: :delete, class: "btn btn-outline-secondary btn-sm"%></span>
-  </div>
-  <% end %>
 </div>
 
