@@ -16,6 +16,12 @@ class Public::UsersController < ApplicationController
     @user.update(user_params)
     redirect_to user_path(@user.id)
   end
+  
+  def favorites
+    @user = User.find(params[:id])
+    favorites= Favorite.where(user_id: @user.id).pluck(:nyankogram_id)
+    @favorite_posts = Nyankogram.find(favorites)
+  end
 
   private
 
