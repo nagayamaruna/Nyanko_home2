@@ -10,42 +10,41 @@
 
       <div class="col-9">
         <p class="card-text"><%= @nyankogram.post_body %></p>
-        <span><i class="fas fa-user"></i><%= @nyankogram.user.name %> | </span>
+        <span><i class="fas fa-user"></i><%= @nyankogram.user.name %> |
         <% if @nyankogram.favorited_by?(current_user) %>
-    <p>
-      <%= link_to nyankogram_favorites_path(@nyankogram), method: :delete do %>
-        ♥<%= @nyankogram.favorites.count %>
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to nyankogram_favorites_path(@nyankogram), method: :post do %>
-        ♡<%= @nyankogram.favorites.count %>
-      <% end %>
-    </p>
-  <% end %>
-        <span>コメント：<%= @nyankogram.nyankogram_post_comments.count %></span>
+            <%= link_to nyankogram_favorites_path(@nyankogram), method: :delete do %>
+              <i class="fa-regular fa-heart"></i><%= @nyankogram.favorites.count %>
+        <% end %>
+          <% else %>
+            <%= link_to nyankogram_favorites_path(@nyankogram), method: :post do %>
+              <i class="fa-regular fa-heart"></i><%= nyankogram.favorites.count %>
+          <% end %>
+        <% end %>
+
+        <i class="fa-regular fa-comment"></i><%= @nyankogram.nyankogram_post_comments.count %></span>
       <div class="date"><%= @nyankogram.created_at.strftime('%Y/%m/%d') %></div>
       </div>
 
-<div>
-  <% @nyankogram.nyankogram_post_comments.each do |nyankogram_post_comment| %>
-    <p><%= image_tag nyankogram_post_comment.user.get_image(50,50) %></p>
-    <%= nyankogram_post_comment.user.name %>
-    <%= nyankogram_post_comment.created_at.strftime('%Y/%m/%d') %><%= nyankogram_post_comment.comment %>
-  <% end %>
+      <div>
+        <% @nyankogram.nyankogram_post_comments.each do |nyankogram_post_comment| %>
+          <p><%= image_tag nyankogram_post_comment.user.get_image(50,50) %></p>
+          <%= nyankogram_post_comment.user.name %>
+          <%= nyankogram_post_comment.created_at.strftime('%Y/%m/%d') %><%= nyankogram_post_comment.comment %>
+        <% end %>
+      </div>
+
+      <% if @nyankogram.user == current_user %>
+        <%= link_to "削除", nyankogram_path(@nyankogram.id), method: :delete, class: "btn btn-outline-secondary btn-sm"%>
+      <% end %>
+    </div>
+</div>
+</div>
 </div>
 
-<% if @nyankogram.user == current_user %>
-<span><%= link_to "削除", nyankogram_path(@nyankogram.id), method: :delete, class: "btn btn-outline-secondary btn-sm"%></span>
-<% end %>
-</div>
-</div>
-</div>
-</div>
-<div>
-  <%= form_with model: [@nyankogram, @nyankogram_post_comment] do |f| %>
-    <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに" %>
-    <%= f.submit "送信" %>
-  <% end %>
-</div>
+<div class="row">
+      <div calss="col-md-10">
+        <%= form_with model: [@nyankogram, @nyankogram_post_comment] do |f| %>
+        <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに" %>
+        <%= f.submit "送信" %>
+        <% end %>
+      </div>

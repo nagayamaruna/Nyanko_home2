@@ -32,10 +32,22 @@
 
       <div class="col-9">
         <p class="card-text"><%= nyankogram.post_body %></p>
-          <span><i class="fas fa-user"></i> <%= nyankogram.user.name %> | </span>
+          <span><i class="fas fa-user"></i> <%= nyankogram.user.name %> | 
+          <% if nyankogram.favorited_by?(current_user) %>
+            <%= link_to nyankogram_favorites_path(nyankogram), method: :delete do %>
+              <i class="fa-regular fa-heart"></i><%= nyankogram.favorites.count %>
+          <% end %>
+    
+          <% else %>
+    
+            <%= link_to nyankogram_favorites_path(nyankogram), method: :post do %>
+              <i class="fa-regular fa-heart"></i><%= nyankogram.favorites.count %>
+          <% end %>
+    
+          <% end %>
 
-        <p><%= link_to "コメント#{nyankogram.nyankogram_post_comments.count} ", nyankogram_path(nyankogram.id) %></p>
-          <span></span>
+          <i class="fa-regular fa-comment"></i><%= link_to "#{nyankogram.nyankogram_post_comments.count} ", nyankogram_path(nyankogram.id) %></span>
+          
         <span><%= link_to "詳細", nyankogram_path(nyankogram), class: "btn btn-outline-secondary btn-sm"%></span>
       </div>
     </div>
