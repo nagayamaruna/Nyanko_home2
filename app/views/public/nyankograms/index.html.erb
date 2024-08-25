@@ -1,22 +1,26 @@
 
+<div class="row">
+  <div class="col-lg-6 mx-auto">
 
-<div class="row my-4">
-  <div class="col-md-6">
+    <h1>ニャンコグラム</h1>
+    <p></p>
     <%= form_with url: nyankograms_path, method: :get do |f| %>
       <div class="row">
         <div class="col-md-10">
           <%= f.search_field :keyword, value: params[:keyword], placeholder: "キーワードから検索できます", class: "form-control" %>
         </div>
         <div class="col-md-2">
-          <%= f.submit "検索", class: "btn btn-outline-secondary btn-block" %>
+          <%= f.submit "検索", class: "btn btn-outline-secondary" %>
         </div>
       </div>
     <% end %>
+    <p></p>
+    <%= link_to "投稿する", new_nyankogram_path, class: "btn btn-outline-secondary btn-sm"%>
   </div>
 </div>
 
 
-<%= link_to "投稿する", new_nyankogram_path, class: "btn btn-outline-secondary btn-sm"%>
+
 
 <%= flash[:notice] %>
 
@@ -32,22 +36,22 @@
 
       <div class="col-9">
         <p class="card-text"><%= nyankogram.post_body %></p>
-          <span><i class="fas fa-user"></i> <%= nyankogram.user.name %> | 
+          <span><i class="fas fa-user"></i> <%= nyankogram.user.name %> |
           <% if nyankogram.favorited_by?(current_user) %>
             <%= link_to nyankogram_favorites_path(nyankogram), method: :delete do %>
               <i class="fa-regular fa-heart"></i><%= nyankogram.favorites.count %>
           <% end %>
-    
+
           <% else %>
-    
+
             <%= link_to nyankogram_favorites_path(nyankogram), method: :post do %>
               <i class="fa-regular fa-heart"></i><%= nyankogram.favorites.count %>
           <% end %>
-    
+
           <% end %>
 
           <i class="fa-regular fa-comment"></i><%= link_to "#{nyankogram.nyankogram_post_comments.count} ", nyankogram_path(nyankogram.id) %></span>
-          
+
         <span><%= link_to "詳細", nyankogram_path(nyankogram), class: "btn btn-outline-secondary btn-sm"%></span>
       </div>
     </div>

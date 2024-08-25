@@ -24,20 +24,26 @@
         <i class="fa-regular fa-comment"></i><%= @nyankogram.nyankogram_post_comments.count %></span>
       <div class="date"><%= @nyankogram.created_at.strftime('%Y/%m/%d') %></div>
       </div>
-
-      <div>
-        <% @nyankogram.nyankogram_post_comments.each do |nyankogram_post_comment| %>
-          <p><%= image_tag nyankogram_post_comment.user.get_image(50,50) %></p>
-          <%= nyankogram_post_comment.user.name %>
-          <%= nyankogram_post_comment.created_at.strftime('%Y/%m/%d') %><%= nyankogram_post_comment.comment %>
+      
+      <div class="btn">
+        <% if @nyankogram.user == current_user %>
+          <%= link_to "削除", nyankogram_path(@nyankogram.id), method: :delete, class: "btn btn-outline-secondary btn-sm"%>
         <% end %>
       </div>
-
-      <% if @nyankogram.user == current_user %>
-        <%= link_to "削除", nyankogram_path(@nyankogram.id), method: :delete, class: "btn btn-outline-secondary btn-sm"%>
-      <% end %>
+      
     </div>
 </div>
+</div>
+</div>
+
+<div class="card w-50 mx-auto mt-4 shadow-lg">
+<div>
+  <% @nyankogram.nyankogram_post_comments.each do |nyankogram_post_comment| %>
+    <span><%= image_tag nyankogram_post_comment.user.get_image(30,30) %></span>
+    <span><%= nyankogram_post_comment.user.name %></span> |
+    <span><%= nyankogram_post_comment.created_at.strftime('%Y/%m/%d') %></span>
+    <p><i class="fa-regular fa-comment"></i><%= nyankogram_post_comment.comment %></p>
+    <% end %>
 </div>
 </div>
 

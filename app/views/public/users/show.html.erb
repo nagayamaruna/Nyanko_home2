@@ -16,7 +16,9 @@
               <%= image_tag @user.get_image(150, 150) %>
             <% end %>
           </td>
-          <td><%= @user.name %></td>
+          <th>
+            <%= @user.name %>
+          </th>
           <td>
             <% if @user == current_user %>
               <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-outline-secondary btn-sm" %>

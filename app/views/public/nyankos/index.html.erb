@@ -1,13 +1,13 @@
 
-<div class="row my-4">
-  <div class="col-md-6">
+<div class="row">
+  <div class="col-lg-6 mx-auto">
     <%= form_with url: nyankos_path, method: :get do |f| %>
       <div class="row">
         <div class="col-md-10">
           <%= f.search_field :keyword, value: params[:keyword], placeholder: "キーワードから検索できます", class: "form-control" %>
         </div>
         <div class="col-md-2">
-          <%= f.submit "検索", class: "btn btn-outline-secondary btn-block" %>
+          <%= f.submit "検索", class: "btn btn-outline-secondary" %>
         </div>
       </div>
     <% end %>
@@ -29,9 +29,9 @@
           <td>
             <%= image_tag nyanko.user.get_image(50,50) do %><%= nyanko.user.name %><% end %>
           </td>
-          <td>
+          <th>
             <%= nyanko.title %>
-          </td>
+          </th>
           <td>
             <%= link_to "詳細", nyanko_path(nyanko) %>
           </td>
