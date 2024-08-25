@@ -17,7 +17,7 @@
         <% end %>
           <% else %>
             <%= link_to nyankogram_favorites_path(@nyankogram), method: :post do %>
-              <i class="fa-regular fa-heart"></i><%= nyankogram.favorites.count %>
+              <i class="fa-regular fa-heart"></i><%= @nyankogram.favorites.count %>
           <% end %>
         <% end %>
 
@@ -42,9 +42,10 @@
 </div>
 
 <div class="row">
-      <div calss="col-md-10">
+  <div class="col-lg-6 mx-auto">
         <%= form_with model: [@nyankogram, @nyankogram_post_comment] do |f| %>
-        <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに" %>
+        <%= f.text_area :comment,size: "65x2", placeholder: "コメントをここに" %>
         <%= f.submit "送信" %>
         <% end %>
-      </div>
+  </div>
+</div>
