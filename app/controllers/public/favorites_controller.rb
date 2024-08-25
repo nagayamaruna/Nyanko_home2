@@ -1,4 +1,5 @@
 class Public::FavoritesController < ApplicationController
+  before_action :authenticate_user!
 
   def create
     nyankogram = Nyankogram.find(params[:nyankogram_id])

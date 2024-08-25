@@ -1,4 +1,5 @@
 class Public::NyankogramsController < ApplicationController
+   before_action :authenticate_user!
   def new
     @nyankogram = Nyankogram.new
     render :new

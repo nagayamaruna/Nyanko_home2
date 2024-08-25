@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
 
   #ログインしていないとtop,aboutページ以外アクセスできないようにする
-  before_action :authenticate_user!, except: [:top, :about]
-  before_action :authenticate_user!, except: [:top], unless: :admin_controller?
-  before_action :configure_authentication
+  #before_action :authenticate_user!, except: [:top, :about]
+ # before_action :authenticate_user!, except: [:top], unless: :admin_controller?
+ # before_action :configure_authentication
 
   private
 
