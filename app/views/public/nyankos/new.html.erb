@@ -1,24 +1,32 @@
-<h1>里親募集フォーム</h1>
+<div class="row">
+  <div class="col-lg-6 mx-auto">
 
-<% if @nyanko.errors.any? %>
-  <%= @nyanko.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @nyanko.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+    <h2>里親募集フォーム</h2>
+    <p></p>
+
+    <% if @nyanko.errors.any? %>
+      <%= @nyanko.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @nyanko.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-<% end %>
 
-<%= form_with model: @nyanko do |f| %>
+    <%= form_with model: @nyanko do |f| %>
+      <p></p>
+      <h4>写真</h4>
+      <%= f.file_field :image, accept: "image/*" %>
 
-  <h4>写真</h4>
-  <%= f.file_field :image, accept: "image/*" %>
-  
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
-  
-  <h4>説明</h4>
-  <%= f.text_area :body %>
-  
-  <%= f.submit '投稿' %>
-<% end %>
+      <p></p>
+      <h4>タイトル</h4>
+      <%= f.text_field :title %>
+
+      <p></p>
+      <h4>説明</h4>
+      <%= f.text_area :body,size: "65x2" %>
+
+      <%= f.submit '投稿' %>
+    <% end %>
+  </div>
+</div>

@@ -8,10 +8,19 @@
           <th>
             <%= link_to user_path(@user) do %>
               <%= image_tag @user.get_image(50, 50) %>
-            <% end %>  <%= @nyanko.user.name %>
+            <% end %>
           </th>
-          <th></th>
-          <th></th>
+          <th>
+            <%= @nyanko.user.name %>
+          </th>
+          <% if @nyanko.user == current_user %>
+          <th>
+            <%= link_to "編集", "#{edit_nyanko_path(@nyanko.id)}", class: "btn btn-outline-secondary btn-sm"%>
+          </th>
+          <th>
+            <%= link_to "Destroy", "#{nyanko_path(@nyanko.id)}", method: :delete, class: "btn btn-outline-secondary btn-sm"%>
+          </th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
@@ -21,20 +30,11 @@
             <%= @nyanko.title %>
           </td>
           <td>
-            <%= @nyanko.title %>
-            </td>
-          <td>
             <%= @nyanko.body %>
           </td>
           <td>
             <%= @nyanko.created_at.strftime('%Y/%m/%d') %>
           </td>
-          <% if @nyanko.user == current_user %>
-      <div class="right">
-        <span><%= link_to "編集", "#{edit_nyanko_path(@nyanko.id)}", class: "btn btn-outline-secondary btn-sm"%></span>
-        <span><%= link_to "Destroy", "#{nyanko_path(@nyanko.id)}", method: :delete, class: "btn btn-outline-secondary btn-sm"%></span>
-      </div>
-      <% end %>
         </tr>
       </tbody>
     </table>
