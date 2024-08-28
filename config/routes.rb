@@ -28,6 +28,9 @@ Rails.application.routes.draw do
         get :favorites
       end
     end
+    
+    resources :messages, only: [:create]
+    resources :rooms, only: [:create, :index, :show]
       
   end
 
