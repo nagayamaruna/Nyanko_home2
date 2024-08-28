@@ -1,7 +1,11 @@
-<div class="title">
-  <h2>
-    <%= ("#{@another_entry.user.name}さんとのメッセージ") %>
-  </h2>
+
+<div class="row">
+  <div class="col-lg-6 mx-auto">
+    <div class="title">
+      <h2>
+        <%= ("#{@another_entry.user.name}さんとのメッセージ") %>
+      </h2>
+    </div>
 
 <% @messages.each do |m| %>
   <% if m.user_id == current_user.id %>
@@ -25,7 +29,8 @@
   </div>
 <% end %>
 
-
+<div class="row">
+  <div class="col-lg-6 mx-auto">
 <div class="chat-form-box">
   <%= form_for @message do |f| %>
     <div class="chat-form-group">
@@ -35,3 +40,7 @@
       </div>
   <% end %>
 </div>
+</div>
+</div>
+</div>
+

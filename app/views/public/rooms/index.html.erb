@@ -7,14 +7,19 @@
              <div class="chat-avatar">
                 <object>
                   <%= link_to user_path(entry.user) do %>
-                    <%= image_tag entry.user.avatar_image %>
-              <%= chat.user.name %>
-                 <%= entry.user.display_name %>
-           <%= chat.text %>
-             <%= Message.find_by(id: entry.room.message_ids.last)&.body %>
-             </object>
+                    <%= image_tag entry.user.get_image(50,50) %>
+                  <div class="chat-user-name">
+                    <%= entry.user.name %>
+                  </div>
+                  <div class="text">
+                    <%= Message.find_by(id: entry.room.message_ids.last)&.dm_body %>
+                  </div>
+                  <% end %>
+                 </object>
              </div>
-             </div>
-             </div>
-             </div>
-             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
