@@ -74,7 +74,6 @@ body {
 }
 
 .chat-messages {
-  flex: 1;
   overflow-y: scroll;
   height: 600px;
 }
@@ -93,15 +92,17 @@ body {
 
 .self .message-body {
   align-self: flex-end;
-  background-color: #fff;
+  background-color: #DDDDDD;
   color: #333;
   margin-top: 10px;
+  max-width: 70%;
 }
 
 .other .message-body {
   align-self: flex-start;
-  background-color: #EE82EE;
+  background-color: #fff;
   color: #333;
+  max-width: 70%;
 }
 
 .chat-form form {
