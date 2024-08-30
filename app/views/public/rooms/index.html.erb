@@ -11,7 +11,7 @@
                   <div class="chat-user-name">
                     <%= entry.user.name %>
                   </div>
-                  <div class="text">
+                  <div class="dm-text">
                     <%= Message.find_by(id: entry.room.message_ids.last)&.dm_body %>
                   </div>
                   <% end %>
