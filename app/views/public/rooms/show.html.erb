@@ -34,21 +34,18 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-lg-6 mx-auto">
-<div class="chat-form">
-  <%= form_for @message do |f| %>
-    <div class="form">
-      <%= f.text_field :dm_body %>
-      <%= f.hidden_field :room_id, :value => @room.id %>
-      <%= f.submit "送信する", class: "btn btn-outline-secondary btn-sm" %>
+    <div class="col-lg-6 mx-auto">
+      <div class="chat-form">
+        <%= form_for @message do |f| %>
+      <div class="form">
+        <%= f.text_field :dm_body %>
+        <%= f.hidden_field :room_id, :value => @room.id %>
+        <%= f.submit "送信", class: "btn btn-outline-secondary btn-sm" %>
+        </div>
+        <% end %>
       </div>
-  <% end %>
-</div>
-</div>
-</div>
-</div>
-
-</div>
+    </div>
+    </div>
+  </div>
 </div>
 
