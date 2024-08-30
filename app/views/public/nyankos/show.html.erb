@@ -31,7 +31,7 @@
         <%= @nyanko.title %>
       </div>
       <div class="main_text">
-        <%= @nyanko.body %>
+        <%= safe_join(@nyanko.body.split("\n"),tag(:br)) %>
       </div>
   </div>
 </div>
