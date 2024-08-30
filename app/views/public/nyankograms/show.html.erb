@@ -1,3 +1,4 @@
+
 <div class="card-list-container py-5">
 <div class="card w-50 mx-auto mt-4 shadow-lg">
   <%= image_tag @nyankogram.nyankogram_image %>
@@ -22,15 +23,17 @@
         <% end %>
 
         <i class="fa-regular fa-comment"></i><%= @nyankogram.nyankogram_post_comments.count %></span>
-      <div class="date"><%= @nyankogram.created_at.strftime('%Y/%m/%d') %></div>
+
+        <div class="date">
+          <%= @nyankogram.created_at.strftime('%Y/%m/%d') %>
+          <div class="deletebtn">
+            <% if @nyankogram.user == current_user %>
+              <%= link_to "削除", nyankogram_path(@nyankogram.id), method: :delete, class: "btn btn-outline-secondary btn-sm"%>
+            <% end %>
+          </div>
+        </div>
       </div>
-      
-      <div class="btn">
-        <% if @nyankogram.user == current_user %>
-          <%= link_to "削除", nyankogram_path(@nyankogram.id), method: :delete, class: "btn btn-outline-secondary btn-sm"%>
-        <% end %>
-      </div>
-      
+
     </div>
 </div>
 </div>
@@ -51,7 +54,7 @@
   <div class="col-lg-6 mx-auto">
         <%= form_with model: [@nyankogram, @nyankogram_post_comment] do |f| %>
         <%= f.text_area :comment,size: "65x2", placeholder: "コメントをここに" %>
-        <%= f.submit "送信" %>
+        <div class="test"><%= f.submit "送信" %></div>
         <% end %>
   </div>
 </div>

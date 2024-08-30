@@ -1,43 +1,38 @@
-<%= flash[:notice] %>
 
 <div class="row">
   <div class="col-md-11 offset-md-1">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>
-            <%= link_to user_path(@user) do %>
-              <%= image_tag @user.get_image(50, 50) %>
-            <% end %>
-          </th>
-          <th>
-            <%= @nyanko.user.name %>
-          </th>
-          <% if @nyanko.user == current_user %>
-          <th>
-            <%= link_to "編集", "#{edit_nyanko_path(@nyanko.id)}", class: "btn btn-outline-secondary btn-sm"%>
-          </th>
-          <th>
-            <%= link_to "Destroy", "#{nyanko_path(@nyanko.id)}", method: :delete, class: "btn btn-outline-secondary btn-sm"%>
-          </th>
+    <div class="show">
+      <div class="img">
+        <div>
+          <%= image_tag @nyanko.image, :size =>'500x500' %>
+        </div>
+      </div>
+      <div class="user_info">
+        <div class="user_img">
+          <%= link_to user_path(@user) do %>
+            <%= image_tag @user.get_image(50, 50) %>
           <% end %>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <%= image_tag @nyanko.image, :size =>'500x500' %>
-            <%= @nyanko.title %>
-          </td>
-          <td>
-            <%= @nyanko.body %>
-          </td>
-          <td>
-            <%= @nyanko.created_at.strftime('%Y/%m/%d') %>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+        </div>
+        <div class="user_name">
+          <%= @nyanko.user.name %> |
+          <%= @nyanko.created_at.strftime('%Y/%m/%d') %>
+        </div>
+        <div class="showbtns">
+            <% if @nyanko.user == current_user %>
+              <btn class="showbtn"><%= link_to "編集", "#{edit_nyanko_path(@nyanko.id)}", class: "btn btn-outline-secondary btn-sm"%></btn>
+
+              <btn class="showbtn"><%= link_to "削除", "#{nyanko_path(@nyanko.id)}", method: :delete, class: "btn btn-outline-secondary btn-sm"%></btn>
+            <% end %>
+        </div>
+      </div>
+    </div>
+
+      <div class="main">
+        <%= @nyanko.title %>
+      </div>
+      <div class="main_text">
+        <%= @nyanko.body %>
+      </div>
   </div>
 </div>
 

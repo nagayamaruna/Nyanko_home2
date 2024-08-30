@@ -1,5 +1,6 @@
 @use '~bootstrap/scss/bootstrap';
 @use 'nyankograms';
+@use 'nyankos';
 
 .font-txt1 {
   font-family: "Nikukyu";
@@ -45,8 +46,8 @@ h3 {
  }
 
  .btn {
-  text-align: right;
-}
+   text-align: right;
+ }
 
 body {
   font-family: "Noto Sans JP", sans-serif;

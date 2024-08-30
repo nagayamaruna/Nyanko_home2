@@ -1,0 +1,64 @@
+// Place all the styles related to the nyankos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.img {
+  text-align: left;
+}
+
+.show {
+  display: flex;
+}
+
+.user_info {
+  display: flex;
+  position: relative;
+  left: 10px;
+  bottom: 140px;
+}
+
+.user_img {
+  position: relative;
+  top: 140px;
+}
+
+.user_name {
+  position: relative;
+  left: 15px;
+  top: 155px;
+}
+
+
+.showbtns {
+  display: flex;
+  position: relative;
+  left: 50px;
+  top: 155px;
+
+
+}
+
+.showbtn {
+
+  &:nth-child(n+2) {
+    margin-left: 10px;
+  }
+
+}
+
+.main {
+  display: flex;
+  position: relative;
+  left: 515px;
+  bottom: 440px;
+}
+
+.day {
+  margin-left: 270px;
+}
+
+.main_text {
+  display: flex;
+  position: relative;
+  left: 515px;
+  bottom: 420px;
+}
