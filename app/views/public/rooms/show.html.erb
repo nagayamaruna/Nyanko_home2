@@ -17,6 +17,9 @@
           <div class="message-body">
             <%= m.dm_body %>
           </div>
+          <div class="message-day">
+            <%= m.created_at.strftime('%m/%d %H:%M') %>
+          </div>
         </div>
         <% else %>
         <div class="message other">
@@ -26,6 +29,9 @@
           </div>
           <div class="message-body">
             <%= m.dm_body %>
+          </div>
+          <div class="message-day">
+            <%= m.created_at.strftime('%m/%d %H:%M') %>
           </div>
         </div>
         <% end %>
