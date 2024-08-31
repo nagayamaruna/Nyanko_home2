@@ -35,8 +35,8 @@ class Public::UsersController < ApplicationController
   
   def favorites
     @user = User.find(params[:id])
-    favorites= Favorite.where(user_id: @user.id).pluck(:nyankogram_id)
-    @favorite_posts = Nyankogram.find(favorites)
+    @favorites= Favorite.where(user_id: @user.id).pluck(:nyankogram_id)
+    @favorite_posts = Nyankogram.page(params[:page])
   end
 
   private

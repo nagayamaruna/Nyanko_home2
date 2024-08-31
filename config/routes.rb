@@ -31,9 +31,13 @@ Rails.application.routes.draw do
     
     resources :messages, only: [:create]
     resources :rooms, only: [:create, :index, :show]
-      
+    
+    resources :notifications, only: [:index] do
+      collection do
+        patch 'mark_as_read'
+      end 
+    end 
+    
   end
-
-
-
+  
 end

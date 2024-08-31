@@ -1,0 +1,2 @@
+tmp = document.querySelector(".message:last-child");
+tmp.scrollIntoView();

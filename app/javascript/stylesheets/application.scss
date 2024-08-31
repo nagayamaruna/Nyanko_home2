@@ -56,7 +56,6 @@ body {
 
 .message {
   display: flex;
-
 }
 
  .chat-container {
@@ -84,10 +83,7 @@ body {
 }
 
 .message-sender {
-  max-width: 70%;
   margin-bottom: 5px;
-  font-size: 0.8em;
-  color: #666;
 }
 
 .message-body {
@@ -103,6 +99,7 @@ body {
   background-color: #DDDDDD;
   color: #333;
   margin-top: 10px;
+  margin-right: 5px;
   max-width: 70%;
 }
 
@@ -111,6 +108,7 @@ body {
   background-color: #fff;
   color: #333;
   margin-top: 10px;
+  margin-left: 5px;
   max-width: 70%;
 }
 
@@ -126,4 +124,14 @@ body {
   align-items: flex-end;
   color: #666;
   font-size: 0.6em;
+}
+
+.DM{
+text-align: center;
+color: #666;
+}
+
+.dm-text {
+  color: #666;
+  text-align: center;
 }

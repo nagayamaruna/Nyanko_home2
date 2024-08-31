@@ -16,7 +16,7 @@
     <div class="test">
       <%= link_to "里親を募集する", new_nyanko_path, class: "btn btn-outline-secondary btn-sm"%>
     </div>
-    
+
     <p></p>
 
 
@@ -29,7 +29,8 @@
             <%= image_tag nyanko.get_image(190,190) %>
           </td>
           <td>
-            <%= image_tag nyanko.user.get_image(50,50) do %><%= nyanko.user.name %><% end %>
+            <%= image_tag nyanko.user.get_image(50,50) %>
+            <p><%= nyanko.user.name %></p>
           </td>
           <th>
             <%= nyanko.title %>

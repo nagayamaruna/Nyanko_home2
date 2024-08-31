@@ -50,6 +50,15 @@
       </li>
 
       <li class="nav-item">
+        <%= link_to mark_as_read_notifications_path, method: :patch, class: 'nav-link text-light active', 'aria-current': 'page' do %>
+      <i class="fa-solid fa-bell"></i> 通知
+        <% if current_user.notifications.where(read: false).any? %>
+        <span class="badge badge-danger"><%= current_user.notifications.where(read: false).count %></span>
+        <% end %>
+       <% end %>
+      </li>
+
+      <li class="nav-item">
       <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light active', 'aria-current': 'page' do %>
       <i class="fa-solid fa-right-from-bracket"></i> ログアウト
       <% end %>
