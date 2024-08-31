@@ -96,10 +96,11 @@ ActiveRecord::Schema.define(version: 2024_08_31_094852) do
   end
 
   create_table "nyanko_hashtags", id: false, force: :cascade do |t|
-    t.integer "nyanko_id_id"
-    t.integer "hashtag_id_id"
-    t.index ["hashtag_id_id"], name: "index_nyanko_hashtags_on_hashtag_id_id"
-    t.index ["nyanko_id_id"], name: "index_nyanko_hashtags_on_nyanko_id_id"
+    t.integer "nyanko_id"
+    t.integer "hashtag_id"
+    t.index ["hashtag_id"], name: "index_nyanko_hashtags_on_hashtag_id"
+    t.index ["nyanko_id", "hashtag_id"], name: "index_nyanko_hashtags_on_nyanko_id_and_hashtag_id", unique: true
+    t.index ["nyanko_id"], name: "index_nyanko_hashtags_on_nyanko_id"
   end
 
   create_table "nyankogram_post_comments", force: :cascade do |t|
@@ -156,6 +157,6 @@ ActiveRecord::Schema.define(version: 2024_08_31_094852) do
   add_foreign_key "entries", "users"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
-  add_foreign_key "nyanko_hashtags", "hashtag_ids"
-  add_foreign_key "nyanko_hashtags", "nyanko_ids"
+  add_foreign_key "nyanko_hashtags", "hashtags"
+  add_foreign_key "nyanko_hashtags", "nyankos"
 end
