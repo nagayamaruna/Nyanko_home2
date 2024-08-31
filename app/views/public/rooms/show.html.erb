@@ -25,7 +25,6 @@
         <div class="message other">
           <div class="message-sender">
             <%= image_tag @another_entry.user.get_image(30,30) %>
-            <%= m.user.name %>
           </div>
           <div class="message-body">
             <%= m.dm_body %>
@@ -55,3 +54,10 @@
   </div>
 </div>
 
+
+<script>
+  jQuery(document).on('turbolinks:load', function(){
+    tmp = document.querySelector(".message:last-child");
+    tmp.scrollIntoView();
+  });
+</script>
