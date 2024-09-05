@@ -1,5 +1,7 @@
 class Nyanko < ApplicationRecord
   has_one_attached :image
+  has_many :nyanko_hashtags, dependent: :destroy
+  has_many :hashtags, dependent: :destroy
   belongs_to :user
 
   validates :image, presence: true
