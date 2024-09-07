@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get '/home/about', to: 'homes#about'
     get "/search", to: "searches#search"
+    get '/nyanko/hashtag/:name' => 'nyankos#hashtag'
     devise_for :users
 
     resources :nyankograms, only: [:new, :show, :create, :index, :destroy] do

@@ -63,6 +63,6 @@ class Public::NyankosController < ApplicationController
   private
 
   def nyanko_params
-    params.require(:nyanko).permit(:title, :body, :image)
+    params.require(:nyanko).permit(:title, :body, :image, :hashname, :hashtag_ids: [])
   end
 end

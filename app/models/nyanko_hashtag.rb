@@ -1,5 +1,7 @@
 class NyankoHashtag < ApplicationRecord
-  belongs_to :hashtag_id
-  has_many :hashtags, dependent: :destroy
-  has_many :nyankos, dependent: :destroy
+  belongs_to :hashtag
+  belongs_to :nyanko
+  
+  validates :hashtag_id, presence: true
+  validates :nyanko_id, presence: true
 end
