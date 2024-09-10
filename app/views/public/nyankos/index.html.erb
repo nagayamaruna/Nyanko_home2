@@ -12,7 +12,7 @@
     <% end %>
         <div class="col-md-2">
           <%= form_tag nyankos_path, method: :get, class: 'boards__searchForm' do %>
-            <%= select_tag :tag_id,options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),{ prompt: 'タグ検索',onchange: 'submit(this.form);'} %>
+            <%= select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),{ prompt: 'タグ検索',onchange: 'submit(this.form);'} %>
           <% end %>
         </div>
 
@@ -27,7 +27,7 @@
   </div>
 
 
-
+    
     <div class="col-lg-10 mx-auto">
       <h4>募集中の猫さん</h4>
       <p></p>

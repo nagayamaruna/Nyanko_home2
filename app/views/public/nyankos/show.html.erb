@@ -28,7 +28,10 @@
     </div>
 
       <div class="main">
-        <%= @nyanko.title %>
+        <%= @nyanko.title %> /
+        <% @nyanko.tags.each do |tag| %>
+          <%= tag.name %>
+        <% end %>
       </div>
       <div class="main_text">
         <%= safe_join(@nyanko.body.split("\n"),tag(:br)) %>

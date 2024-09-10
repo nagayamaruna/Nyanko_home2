@@ -25,19 +25,21 @@
       <p></p>
       <h4>説明</h4>
       <%= f.text_area :body,size: "65x2" %>
-      
+
       <p></p>
       <h4>猫の種類</h4>
-      <%= form.collection_check_boxes(:hashtag_ids, Tag.all, :id, :name) do |tag| %>
+      <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
         <%= tag.label do %>
           <%= tag.check_box %>
-          <%= tag.text %>
+          <%= tag.text %> / 
         <% end %>
-     
-      <% end %>
-      
 
-      <%= f.submit '投稿' %>
+      <% end %>
+
+      <p></p>
+      <div class="test">
+        <%= f.submit '投稿' %>
+      </div>
     <% end %>
   </div>
 </div>
