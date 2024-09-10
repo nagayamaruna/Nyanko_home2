@@ -17,3 +17,26 @@ post1 = Nyankogram.find_or_initialize_by(post_body: "kawaii?")
 if post1.new_record?
   #post1.post_images.attache
 end
+
+Tag.create([
+    { name: '雑種' },
+    { name: 'キジトラ' },
+    { name: '茶トラ' },
+    { name: 'キジ白' },
+    { name: '白黒' },
+    { name: '黒サビ' },
+    { name: 'アメリカンショートヘア' },
+    { name: 'エキゾチックショートヘア'},
+    { name: 'サイベリアン'},
+    { name: 'スコティッシュフォールド'},
+    { name: 'シャム'},
+    { name: 'ベンガル'},
+    { name: 'マンチカン'},
+    { name: 'ミヌエット'},
+    { name: 'メインクーン'},
+    { name: 'ラグドール'},
+    { name: 'ロシアンブルー'},
+    { name: 'ブリティッシュ'},
+    { name: 'ペルシャ'},
+    { name: 'その他'},
+    ])
