@@ -6,6 +6,10 @@ class Nyanko < ApplicationRecord
 
   validates :image, presence: true
   validates :body, presence: true
+  
+  after_create_commit :update_hashtags
+  before_update :update_hashtags
+
 
   def get_image(width, height)
   unless image.attached?
@@ -16,23 +20,13 @@ class Nyanko < ApplicationRecord
   end
 end
 
-   after_create do
-    nyanko = Nyanko.find_by(id: id)
-    # hashnameに打ち込まれたハッシュタグを検出
-    hashtags = hashname.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
-    hashtags.uniq.map do |hashtag|
-      # ハッシュタグは先頭の#を外した上で保存
-      tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
-      nyanko.hashtags << tag
-    end
-  end
-  #更新アクション
-  before_update do
-    nyanko = Nyanko.find_by(id: id)
-    nyanko.hashtags.clear
+
+ private
+ 
+   def update_hashtags
     hashtags = hashname.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
     hashtags.uniq.map do |hashtag|
       tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
-      nyanko.hashtags << tag
+      self.hashtags << tag
     end
-  end
+   end
