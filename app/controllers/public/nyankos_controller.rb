@@ -59,7 +59,16 @@ class Public::NyankosController < ApplicationController
       render :edit
     end
   end
-
+  
+  def hashtag
+    @user = current_user
+    @tag = Hashtag.find_by(hashname: params[:name])
+    @nyankos = @tag.nyankos.build
+    @nyanko  = @tag.nyankos.page(params[:page])
+    @comment    = Comment.new
+    @comments   = @nyankos.comments
+  end
+  
   private
 
   def nyanko_params

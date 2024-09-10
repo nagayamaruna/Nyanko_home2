@@ -16,7 +16,7 @@ class Nyanko < ApplicationRecord
   end
 end
 
-  after_create do
+   after_create do
     nyanko = Nyanko.find_by(id: id)
     # hashnameに打ち込まれたハッシュタグを検出
     hashtags = hashname.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)

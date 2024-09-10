@@ -28,6 +28,7 @@
       
       <p></p>
       <h4>タグ</h4>
+      <%= render_with_hashtags(nyanko.content) %>
       <%= f.text_area :hashname, size:"55x3" %>
 
       <%= f.submit '投稿' %>
