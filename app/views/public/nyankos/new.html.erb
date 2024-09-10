@@ -27,9 +27,15 @@
       <%= f.text_area :body,size: "65x2" %>
       
       <p></p>
-      <h4>タグ</h4>
-      <%= render_with_hashtags(nyanko.content) %>
-      <%= f.text_area :hashname, size:"55x3" %>
+      <h4>猫の種類</h4>
+      <%= form.collection_check_boxes(:hashtag_ids, Tag.all, :id, :name) do |tag| %>
+        <%= tag.label do %>
+          <%= tag.check_box %>
+          <%= tag.text %>
+        <% end %>
+     
+      <% end %>
+      
 
       <%= f.submit '投稿' %>
     <% end %>

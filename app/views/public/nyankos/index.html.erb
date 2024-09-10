@@ -9,23 +9,26 @@
         <div class="col-md-2">
           <%= f.submit "検索", class: "btn btn-outline-secondary" %>
         </div>
-        <div class="col-md-10">
-          
-      </div>
     <% end %>
+        <div>
+          <%= form_tag nyankos_path, method: :get, class: 'boards__searchForm' do %>
+            <%= select_tag :tag_id,options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),{ prompt: 'タグで絞り込み検索',onchange: 'submit(this.form);'} %>
+          <% end %>
+        </div>
+
   </div>
 </div>
+
     <div class="test">
       <%= link_to "里親を募集する", new_nyanko_path, class: "btn btn-outline-secondary btn-sm"%>
     </div>
 
     <p></p>
 
-
       <h4>募集中の猫さん</h4>
         <table class="table table-hover ">
         <% @nyankos.each do |nyanko| %>
-        <% provide(@tag.hashname) %>
+
         <tr>
           <td>
             <%= image_tag nyanko.get_image(190,190) %>
@@ -38,7 +41,9 @@
             <%= nyanko.title %>
           </th>
           <th>
-            <%= @tag.hashname %>
+            <% nyanko.tags.each do |tag| %>
+              <%= tag.name %>
+            <% end %>
           </th>
           <td>
             <%= link_to "詳細", nyanko_path(nyanko) %>

@@ -30,6 +30,7 @@ class Public::NyankosController < ApplicationController
       @nyankos = @nyankos.where('title LIKE ?', "%#{params[:keyword]}%").or(
                @nyankos.where('body LIKE ?', "%#{params[:keyword]}%"))
     end
+    @nyankos_tag = params[:tag_id].present? ? Tag.find(params[:tag_id]).nyankos : Nyanko.all
   end
 
   def show
@@ -59,19 +60,10 @@ class Public::NyankosController < ApplicationController
       render :edit
     end
   end
-  
-  def hashtag
-    @user = current_user
-    @tag = Hashtag.find_by(hashname: params[:name])
-    @nyankos = @tag.nyankos.build
-    @nyanko  = @tag.nyankos.page(params[:page])
-    @comment    = Comment.new
-    @comments   = @nyankos.comments
-  end
-  
+
   private
 
   def nyanko_params
-    params.require(:nyanko).permit(:title, :body, :image, :hashname, :hashtag_ids [])
+    params.require(:nyanko).permit(:title, :body, :image, :tag_ids [])
   end
 end
