@@ -2,13 +2,16 @@
 <div class="row">
   <div class="col-lg-6 mx-auto">
       <h1> ニャンコ ホーム</h1>
-      
+
     <div class="top">
       <h3>
         <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-light" %>
 
         <%= link_to "サインアップ", new_user_registration_path, class: "btn btn-outline-light"%>
       </h3>
+    </div>
+    <div class="guest">
+      <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-outline-secondary btn-sm mb-3 sign_in", method: :post %>
     </div>
   </div>
 </div>
