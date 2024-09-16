@@ -28,9 +28,10 @@ class Public::NyankosController < ApplicationController
     @users = User.all
     if params[:keyword].present?
       @nyankos = @nyankos.where('title LIKE ?', "%#{params[:keyword]}%").or(
-               @nyankos.where('body LIKE ?', "%#{params[:keyword]}%"))
+      @nyankos.where('body LIKE ?', "%#{params[:keyword]}%"))
     end
-    @nyankos_tag = params[:tag_id].present? ? Tag.find(params[:tag_id]).nyankos : Nyanko.all
+    @nyankos = params[:tag_id].present? ? Tag.find(params[:tag_id]).nyankos : Nyanko.all
+    @nyankos = @nyankos.page(params[:page])
   end
 
   def show
