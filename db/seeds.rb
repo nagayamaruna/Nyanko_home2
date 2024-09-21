@@ -18,6 +18,7 @@ if post1.new_record?
   #post1.post_images.attache
 end
 
+
 Tag.create([
     { name: '雑種' },
     { name: 'キジトラ' },
