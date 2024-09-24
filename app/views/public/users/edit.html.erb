@@ -15,9 +15,10 @@
       </p>
       <% end %>
 
-      <% unless user.guest_user? %>
-      <% if user.email != "guest@example.com" %>
-          <%= link_to "",edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+      <% unless @user.guest_user? %>
+      <% if @user.email != "guest@example.com" %>
+          <%= link_to "",edit_user_path(@user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{@user.id}" %>
       <% end %>
   </div>
 </div>
+ <% end %>
