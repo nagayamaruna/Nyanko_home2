@@ -8,9 +8,12 @@ class Public::NyankogramsController < ApplicationController
   def create
     @nyankogram = Nyankogram.new(nyankogram_params)
     @nyankogram.user_id = current_user.id
-    @nyankogram.save
-    flash[:notice] = "投稿しました。"
-    redirect_to nyankograms_path
+    if @nyankogram.save
+      flash[:notice] = "投稿しました。"
+      redirect_to nyankograms_path
+    else
+      render :new
+    end
   end
 
   def index

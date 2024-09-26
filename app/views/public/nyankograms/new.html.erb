@@ -2,6 +2,16 @@
 <div class="row">
   <div class="col-lg-6 mx-auto">
     <h1>ニャンコグラム</h1>
+    
+    <% if @nyankogram.errors.any? %>
+    <%= @nyankogram.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @nyankogram.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    
     <%= form_with model: @nyankogram do |f| %>
 
     <p></p>
