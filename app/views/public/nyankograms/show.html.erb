@@ -21,16 +21,16 @@
           <% end %>
         <% end %>
 
-        <i class="fa-regular fa-comment"></i><%= @nyankogram.nyankogram_post_comments.count %> | 
+        <i class="fa-regular fa-comment"></i><%= @nyankogram.nyankogram_post_comments.count %> |
 
           <%= @nyankogram.created_at.strftime('%Y/%m/%d') %></span>
-      
+
           <div class="deletebtn">
             <% if @nyankogram.user == current_user %>
               <%= link_to "削除", nyankogram_path(@nyankogram.id), method: :delete, class: "btn btn-outline-secondary btn-sm"%>
             <% end %>
           </div>
-        
+
         <p class="card-text"><%= safe_join(@nyankogram.post_body.split("\n"),tag(:br)) %></p>
       </div>
 
@@ -46,7 +46,10 @@
     <span><%= nyankogram_post_comment.user.name %></span> |
     <span><%= nyankogram_post_comment.created_at.strftime('%Y/%m/%d') %></span>
     <p><i class="fa-regular fa-comment"></i><%= nyankogram_post_comment.comment %></p>
+    <% if nyankogram_post_comment.user == current_user %>
+      <%= link_to "削除", nyankogram_nyankogram_post_comment_path(nyankogram_post_comment.nyankogram, nyankogram_post_comment), method: :delete %>
     <% end %>
+  <% end %>
 </div>
 </div>
 

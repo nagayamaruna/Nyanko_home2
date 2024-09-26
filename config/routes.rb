@@ -19,30 +19,30 @@ Rails.application.routes.draw do
     devise_for :users
 
     resources :nyankograms, only: [:new, :show, :create, :index, :destroy] do
-      resources :nyankogram_post_comments, only: [:create]
+      resources :nyankogram_post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
-    
+
     resources :nyankos, only: [:new, :create, :index, :show, :edit, :destroy, :update]
     resources :users, only: [:show, :edit, :update] do
       member do
         get :favorites
       end
     end
-    
+
     resources :messages, only: [:create]
     resources :rooms, only: [:create, :index, :show]
-    
+
     resources :notifications, only: [:index] do
       collection do
         patch 'mark_as_read'
-      end 
-    end 
-    
+      end
+    end
+
   end
-  
+
   devise_scope :user do
     post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
   end
-  
+
 end
