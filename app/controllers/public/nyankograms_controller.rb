@@ -17,7 +17,7 @@ class Public::NyankogramsController < ApplicationController
   end
 
   def index
-    @nyankograms = Nyankogram.page(params[:page])
+    @nyankograms = Nyankogram.page(params[:page]).order(created_at: :desc)
     @users = User.all
     if params[:keyword].present?
       @nyankograms = @nyankograms.where('name LIKE ?', "%#{params[:keyword]}%").or(
