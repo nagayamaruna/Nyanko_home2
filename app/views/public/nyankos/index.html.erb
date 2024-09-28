@@ -27,7 +27,7 @@
   </div>
 
 
-    
+
     <div class="col-lg-10 mx-auto">
       <h4>募集中の猫さん</h4>
       <p></p>
@@ -41,6 +41,7 @@
           <td>
             <%= image_tag nyanko.user.get_image(50,50) %>
             <p><%= nyanko.user.name %></p>
+            <p><%= nyanko.created_at.strftime('%Y/%m/%d') %></p>
           </td>
           <th>
             <%= nyanko.title %>
