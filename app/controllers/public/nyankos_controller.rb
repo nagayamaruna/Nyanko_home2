@@ -24,7 +24,7 @@ class Public::NyankosController < ApplicationController
   end
 
   def index
-    @nyankos = Nyanko.page(params[:page])
+    @nyankos = Nyanko.page(params[:page]).order(created_at: :desc)
     @users = User.all
     if params[:keyword].present?
       @nyankos = @nyankos.where('title LIKE ?', "%#{params[:keyword]}%").or(
