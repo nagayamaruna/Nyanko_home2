@@ -39,7 +39,7 @@
             <%= image_tag nyanko.get_image(190,190) %>
           </td>
           <td>
-            <%= link_to user_path(nyanko) do %>
+            <%= link_to user_path(nyanko.user) do %>
               <%= image_tag nyanko.user.get_image(50,50) %>
             <% end %>
             <p><%= nyanko.user.name %></p>
