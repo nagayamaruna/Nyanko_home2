@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    attributes:
+      nyankos:
+        title: タイトル
+        body: 説明
+        image: 画像
+        name: 名前
