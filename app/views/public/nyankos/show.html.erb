@@ -10,7 +10,7 @@
       <div class="user_info">
         <div class="user_img">
           <%= link_to user_path(@user) do %>
-            <%= image_tag @user.get_imageclass: 'nyanko-img' %>
+            <%= image_tag @user.get_image, class: 'nyanko-img' %>
           <% end %>
         </div>
         <div class="user_name">
