@@ -36,5 +36,14 @@
 
 <!--実装機能リスト-->
 https://docs.google.com/spreadsheets/d/1c1y_aYvcFgWmPXqmCujxXgotu1MTL9nn5v4bEaE9W_8/edit?usp=sharing
+<!--ER図-->
+https://drive.google.com/file/d/1CjIK04xz7LHAd1d_kSUQt5pvb7D1-8DM/view?usp=sharing
+<!--テーブル定義書-->
+https://docs.google.com/spreadsheets/d/1-R5Wnq7d9Fa5BAoz717L9DSDcDAc4Qm5WG3lZAaxW-g/edit?usp=sharing
+<!--詳細設計書-->
+https://docs.google.com/spreadsheets/d/1BVY9hLPk7X8SS-G7m2Pg-sONzzAW6ahK/edit?usp=sharing&ouid=109861437570433406959&rtpof=true&sd=true
+
+<!--使用素材-->
+フリー素材　ぱくたそ
 
 
