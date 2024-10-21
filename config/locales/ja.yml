@@ -5,32 +5,34 @@ ja:
       nyanko: ニャンコ
       nyankogram: ニャンコグラム
 
-  attributes:
-    nyanko:
-      title: タイトル
-      body: 説明
-      image: 画像
-      name: 名前
-      created_at: 投稿日
-      updated_at: 更新日
-      
-    user:
-      email: Eメール
-      name: 名前
-      created_at: 作成日
-      updated_at: 更新日
-      confirmation_sent_at: パスワード確認送信時刻
-      confirmation_token: パスワード確認用トークン
-      confirmed_at: パスワード確認時刻
-      current_password: 現在のパスワード
-      current_sign_in_at: 現在のログイン時刻
-      current_sign_in_ip: 現在のログインIPアドレス
-      
+    attributes:
+      nyanko:
+        title: タイトル
+        body: 説明
+        image: 画像
+        name: 名前
+        created_at: 投稿日
+        updated_at: 更新日
 
-    nyankogram:
-      post_body: 説明
-      post_image: 画像
-      name: 名前
+      user:
+        email: Eメール
+        name: 名前
+        password: パスワード
+        password_confirmation: パスワード確認
+        remember_me: ログインしたままにする
+        created_at: 作成日
+        updated_at: 更新日
+        confirmation_sent_at: パスワード確認送信時刻
+        confirmation_token: パスワード確認用トークン
+        confirmed_at: パスワード確認時刻
+        current_password: 現在のパスワード
+        current_sign_in_at: 現在のログイン時刻
+        current_sign_in_ip: 現在のログインIPアドレス
+
+      nyankogram:
+        post_body: 説明
+        post_image: 画像
+        name: 名前
 
   errors:
       messages:
