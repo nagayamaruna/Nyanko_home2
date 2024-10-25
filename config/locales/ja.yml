@@ -33,6 +33,7 @@ ja:
         post_body: 説明
         post_image: 画像
         name: 名前
+        nyankogram_image: 画像
 
   errors:
       messages:
